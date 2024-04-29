@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class ForgotPasswordActivity: AppCompatActivity() {
@@ -29,7 +28,7 @@ class ForgotPasswordActivity: AppCompatActivity() {
 
         // Set OnClickListener for the back button to navigate to the MainActivity
         backButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LogIn::class.java)
             startActivity(intent)
             finish() // Optional: finish SignUpActivity to remove it from the back stack
         }

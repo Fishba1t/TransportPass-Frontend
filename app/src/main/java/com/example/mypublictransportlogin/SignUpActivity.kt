@@ -6,7 +6,6 @@ import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -25,13 +24,12 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-
         // Find the back button
-        val backButton = findViewById<ImageButton>(R.id.backButtonsignup)
+        val backButton = findViewById<ImageButton>(R.id.backButton)
 
         // Set OnClickListener for the back button to navigate to the MainActivity
         backButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LogIn::class.java)
             startActivity(intent)
             finish() // Optional: finish SignUpActivity to remove it from the back stack
         }
@@ -54,7 +52,7 @@ class SignUpActivity : AppCompatActivity() {
 
         // Set OnClickListener for loginTextView to navigate back to the login activity
         findViewById<TextView>(R.id.loginTextView).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LogIn::class.java)
             startActivity(intent)
         }
 
