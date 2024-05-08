@@ -50,6 +50,21 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name=".SelectBox"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ChoosePass"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".TicketsActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>

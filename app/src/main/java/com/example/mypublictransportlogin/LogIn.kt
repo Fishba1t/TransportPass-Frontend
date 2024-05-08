@@ -41,14 +41,15 @@ class LogIn : AppCompatActivity() {
             }
 
             findViewById<TextView>(R.id.forgotPasswordTextView).setOnClickListener {
-                val intent1 = Intent(this, ForgotPasswordActivity::class.java)
-                startActivity(intent1)
+                val intent4 = Intent(this, ForgotPasswordActivity::class.java)
+                startActivity(intent4)
             }
 
-            findViewById<TextView>(R.id.LOGIN).setOnClickListener {
-                val intent1 = Intent(this, ClientMain::class.java)
-                startActivity(intent1)
+            findViewById<com.google.android.material.button.MaterialButton>(R.id.LOGIN).setOnClickListener {
+                val intent5 = Intent(this, ClientMain::class.java)
+                startActivity(intent5)
             }
+
 
             // Apply window insets to handle system UI
             ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

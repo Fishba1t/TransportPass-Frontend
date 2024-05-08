@@ -8,6 +8,7 @@
     android:background="@drawable/animation_list"
     tools:context=".SignUpActivity">
 
+    <!-- Back Button -->
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
@@ -20,7 +21,7 @@
         android:src="@drawable/baseline_arrow_back_24"
         android:contentDescription="Back"/>
 
-
+    <!-- Logo Image -->
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
@@ -30,15 +31,13 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/logonou" />
 
+    <!-- CardView for Sign Up Form -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:cardCornerRadius="25dp"
         app:cardBackgroundColor="#FFFFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         android:layout_marginBottom="-20dp"
         tools:ignore="MissingConstraints">
 
@@ -51,6 +50,7 @@
             android:paddingEnd="30dp"
             android:paddingBottom="20dp">
 
+            <!-- Sign Up Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,6 +59,7 @@
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
+            <!-- Instruction Text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,11 +67,7 @@
                 android:text="Please register with your information"
                 android:textStyle="bold|normal"/>
 
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="15dp" />
-
-            <!-- First Name -->
+            <!-- First Name EditText -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +92,7 @@
 
             </RelativeLayout>
 
+            <!-- Last Name EditText -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,6 +117,7 @@
 
             </RelativeLayout>
 
+            <!-- Email EditText -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -143,13 +142,14 @@
 
             </RelativeLayout>
 
+            <!-- SSN EditText -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/mobileEditText"
+                    android:id="@+id/ssnEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
@@ -161,12 +161,13 @@
                     android:id="@+id/mobileIconImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignEnd="@id/mobileEditText"
+                    android:layout_alignEnd="@id/ssnEditText"
                     android:layout_marginEnd="6dp"
                     android:src="@drawable/baseline_perm_identity_24" />
 
             </RelativeLayout>
 
+            <!-- Password EditText -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -192,35 +193,8 @@
 
             </RelativeLayout>
 
-            <!-- This block contains the EditText and ImageView for confirming the password -->
-            <!--
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
 
-                <EditText
-                    android:id="@+id/confirmPasswordEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:hint="Confirm your password"
-                    android:textStyle="bold|normal"
-                    android:textSize="14sp"
-                    android:maxLines="1"/>
-
-                <ImageView
-                    android:id="@+id/confirmPasswordIconImageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@id/confirmPasswordEditText"
-                    android:layout_marginEnd="6dp"
-                    android:src="@drawable/baseline_key_off_24" />
-
-            </RelativeLayout>
-            -->
-
-
+            <!-- Sign Up Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signUpButton"
                 android:layout_width="match_parent"
@@ -230,12 +204,12 @@
                 app:backgroundTint="@color/purple"
                 app:cornerRadius="32dp" />
 
+            <!-- Already Have Account Text -->
             <RelativeLayout
                 android:id="@+id/alreadyHaveAccountLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/signUpButton"
                 android:layout_centerHorizontal="true">
 
                 <TextView
@@ -258,12 +232,6 @@
                     android:textSize="16sp" />
 
             </RelativeLayout>
-
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
-
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
