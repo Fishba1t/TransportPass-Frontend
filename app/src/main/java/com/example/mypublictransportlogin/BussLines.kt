@@ -23,5 +23,15 @@ class BussLines: AppCompatActivity() {
             val intent1 = Intent(this, ShowRoute::class.java)
             startActivity(intent1)
         }
+
+        // Find the back button
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+
+        // Set OnClickListener for the back button to navigate to the MainActivity
+        backButton.setOnClickListener {
+            val intent = Intent(this, ClientMain::class.java)
+            startActivity(intent)
+            finish() // Optional: finish SignUpActivity to remove it from the back stack
+        }
     }
 }

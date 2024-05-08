@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -24,7 +25,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-        // Find the back button
+
         val backButton = findViewById<ImageButton>(R.id.backButton)
 
         // Set OnClickListener for the back button to navigate to the MainActivity
@@ -34,7 +35,7 @@ class SignUpActivity : AppCompatActivity() {
             finish() // Optional: finish SignUpActivity to remove it from the back stack
         }
 
-        // Initialize views
+        // Find views
         passwordEditText = findViewById(R.id.passwordEditText)
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText)
         passwordIconImageView = findViewById(R.id.passwordIconImageView)
@@ -62,8 +63,6 @@ class SignUpActivity : AppCompatActivity() {
         animationDrawable.setEnterFadeDuration(3500)
         animationDrawable.setExitFadeDuration(5000)
         animationDrawable.start()
-
-
     }
 
     private fun togglePasswordVisibility() {
