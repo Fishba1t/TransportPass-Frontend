@@ -33,10 +33,105 @@
             android:layout_height="114dp"
             android:gravity="center"
             android:padding="16dp"
-            android:text="All Bus Lines"
+            android:text="ALL BUS LINES"
             android:textColor="@color/white"
             android:fontFamily="@font/montserrat_bold"
             android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/transparent"
+            android:padding="16dp">
+
+            <!-- Legend Items -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@color/redd2"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BUSES"
+                    android:textColor="@color/redd2"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@color/greenn2"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TROLEYBUSES"
+                    android:textColor="@color/greenn2"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@color/bluee"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRAMS"
+                    android:textColor="@color/bluee"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@color/orangee"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MICROBUSES"
+                    android:textColor="@color/orangee"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Add more legend items as needed -->
+
+        </LinearLayout>
 
 
     <LinearLayout
@@ -44,58 +139,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="87dp"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/AUTOBUZE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="BUSES"
-                android:textSize="12sp"
-                android:textColor="@android:color/holo_red_dark" />
-
-            <TextView
-                android:id="@+id/TROLEIBUZE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="TROLLEYBUSES"
-                android:textSize="12sp"
-                android:textColor="@android:color/holo_green_dark" />
-
-            <TextView
-                android:id="@+id/TRAMVAIE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="TRAMS"
-                android:textSize="12sp"
-                android:textColor="@android:color/holo_blue_dark" />
-
-            <TextView
-                android:id="@+id/MICROBUZE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="MICROBUSES"
-                android:textSize="12sp"
-                android:textColor="@android:color/holo_orange_dark" />
-
-
-
-        </LinearLayout>
             <!-- Repeat the above LinearLayout pattern for all 17 rows -->
             <!-- For simplicity, I'm showing only one row here -->
 
