@@ -67,6 +67,11 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name=".BusTicketQRCode"
+            android:exported="true">
+        </activity>
+
         <activity android:name=".BusPassQRCode"
             android:exported="true">
         </activity>

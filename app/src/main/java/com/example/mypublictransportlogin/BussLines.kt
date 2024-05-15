@@ -1,5 +1,6 @@
 package com.example.mypublictransportlogin
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -10,16 +11,12 @@ import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 
 class BussLines: AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bus_lines)
-        val relativeLayout = findViewById<ScrollView>(R.id.main1)
-        val animationDrawable = relativeLayout.background as AnimationDrawable
-        animationDrawable.setEnterFadeDuration(3500)
-        animationDrawable.setExitFadeDuration(5000)
-        animationDrawable.start()
 
-        findViewById<Button>(R.id.linia).setOnClickListener {
+        findViewById<Button>(R.id.linia1).setOnClickListener {
             val intent1 = Intent(this, ShowRoute::class.java)
             startActivity(intent1)
         }

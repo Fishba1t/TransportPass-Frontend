@@ -210,6 +210,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginStart="3dp"
                 android:layout_centerHorizontal="true">
 
                 <TextView
@@ -217,6 +218,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Already have an account?"
+                    android:textStyle="bold"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -233,6 +235,10 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

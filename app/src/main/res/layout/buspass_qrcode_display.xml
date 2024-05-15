@@ -83,16 +83,16 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/newusersforbuspass2"
+                android:src="@drawable/buspassqr"
                 android:layout_gravity="center_vertical"
-                android:paddingEnd="5dp" />
+                android:paddingEnd="7dp" />
 
             <!-- Text view for "NAME" -->
             <TextView
                 android:id="@+id/TextTip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NAME: "
+                android:text="PASS TYPE: "
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:gravity="center_vertical" />
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/dateto"
                 android:layout_gravity="center_vertical"
-                android:paddingEnd="13dp" />
+                android:paddingEnd="8dp" />
 
             <!-- Text view for "PURCHASE DATE" -->
             <TextView
@@ -160,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/expirationdate48"
                 android:layout_gravity="center_vertical"
-                android:paddingEnd="11dp" />
+                android:paddingEnd="9dp" />
 
             <!-- Text view for "EXPIRY DATE" -->
             <TextView

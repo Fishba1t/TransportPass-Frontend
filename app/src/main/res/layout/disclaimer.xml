@@ -9,7 +9,6 @@
     android:paddingBottom="24dp"
     android:background="#E0E0E0">
 
-    <!-- Title TextView -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
@@ -32,13 +31,11 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="Disclaimer Logo"/>
 
-    <!-- Disclaimer Text -->
-    <!-- Disclaimer Text -->
     <TextView
         android:id="@+id/disclaimerTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is a disclaimer message. Please be advised that the displayed prices are the standard ones. Pensioner and student discount applies at checkout!"
+        android:text="This is a disclaimer message. \nPlease be advised that the displayed prices are the standard ones. \nPENSIONER and STUDENT discount applies at checkout!"
         android:textSize="16sp"
         android:textColor="@android:color/black"
         android:layout_below="@id/logoImageView"
@@ -52,7 +49,6 @@
         android:textAlignment="center" />
 
 
-    <!-- OK Button -->
     <Button
         android:id="@+id/okButton"
         android:layout_width="wrap_content"

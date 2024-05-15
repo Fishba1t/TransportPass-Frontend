@@ -15,5 +15,14 @@ class BusTicketQRCode : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.busticket_qrcode_display)
+
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+
+        // Set OnClickListener for the back button to navigate to the MainActivity
+        backButton.setOnClickListener {
+            val intent = Intent(this, ClientMain::class.java)
+            startActivity(intent)
+            finish() // Optional: finish SignUpActivity to remove it from the back stack
+        }
     }
 }
