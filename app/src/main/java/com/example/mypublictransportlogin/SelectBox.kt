@@ -19,26 +19,36 @@ class SelectBox : AppCompatActivity() {
     private lateinit var adapterItems: ArrayAdapter<String>
     private lateinit var dialog: Dialog
     private var selectedPassLayout: LinearLayout? = null
+    private lateinit var pass_type : String
+    private var price : Double = 0.0
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bus_pass)
-
+        val connectToServerViewModel = ConnectToServerViewModel.getInstance()
         findViewById<LinearLayout>(R.id.firstpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.firstpass) as LinearLayout, "URBAN PASS", "150.00 RON")
+            pass_type = "URBAN PASS"
+            price=150.0
         }
 
         findViewById<LinearLayout>(R.id.secondpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.secondpass) as LinearLayout, "METROPOLITAN PASS", "165.00 RON")
+            pass_type = "METROPOLITAN PASS"
+            price = 165.0
         }
 
         findViewById<LinearLayout>(R.id.thirdpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.thirdpass) as LinearLayout, "INTRA-COMMUNAL PASS", "135.00 RON")
+            pass_type="INTRA-COMMUNAL PASS"
+            price = 135.0
         }
 
         findViewById<LinearLayout>(R.id.forthpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.forthpass) as LinearLayout, "INTER-COMMUNAL PASS", "135.00 RON")
+            pass_type="INTER-COMMUNAL PASS"
+            price = 135.0
         }
 
         val backButton = findViewById<ImageButton>(R.id.backButton)
@@ -53,6 +63,11 @@ class SelectBox : AppCompatActivity() {
         findViewById<TextView>(R.id.clickHere).setOnClickListener {
             val intent8 = Intent(this, ChoosePass::class.java)
             startActivity(intent8)
+        }
+
+
+        findViewById<Button>(R.id.paymentButton).setOnClickListener {
+            connectToServerViewModel.buyPass(pass_type,price)
         }
 
         // Define the list of items

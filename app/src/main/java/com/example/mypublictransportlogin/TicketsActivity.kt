@@ -1,18 +1,25 @@
 package com.example.mypublictransportlogin
 
+import ConnectToServerViewModel
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 
 class TicketsActivity : AppCompatActivity() {
 
     private var selectedPassLayout: LinearLayout? = null
+    private lateinit var pass_type : String
+    private var price : Double = 0.0
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+        val connectToServerViewModel = ConnectToServerViewModel.getInstance()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bus_ticket)
 
@@ -27,22 +34,31 @@ class TicketsActivity : AppCompatActivity() {
 
         findViewById<LinearLayout>(R.id.firstpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.firstpass) as LinearLayout, "URBAN TICKET", "3.00 RON")
+            pass_type="URBAN TICKET"
+            price=3.0
         }
 
         findViewById<LinearLayout>(R.id.thirdpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.thirdpass) as LinearLayout, "NIGHT TICKET", "5.00 RON")
+            pass_type="NIGHT TICKET"
+            price=5.0
         }
 
         findViewById<LinearLayout>(R.id.forthpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.forthpass) as LinearLayout, "ONE DAY TICKET", "20.00 RON")
+            pass_type="ONE DAY TICKET"
+            price=20.0
         }
 
         findViewById<LinearLayout>(R.id.fifthpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.fifthpass) as LinearLayout, "ONE WEEK TICKET", "75.00 RON")
+            pass_type="ONE WEEK TICKET"
+            price=75.00
         }
 
-        findViewById<LinearLayout>(R.id.secondpass)?.setOnClickListener {
-            toggleBusPassSelection(findViewById(R.id.secondpass) as LinearLayout, "URBAN TICKET", "3.00 RON  30 minutes")
+
+        findViewById<Button>(R.id.paymentButton)?.setOnClickListener{
+            connectToServerViewModel.buyTicket(pass_type,price)
         }
     }
 

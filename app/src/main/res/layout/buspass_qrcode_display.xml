@@ -89,6 +89,7 @@
 
             <!-- Text view for "NAME" -->
             <TextView
+                android:id="@+id/TextTip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NAME: "
@@ -126,6 +127,7 @@
 
             <!-- Text view for "PURCHASE DATE" -->
             <TextView
+                android:id="@+id/DataIncepere"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PURCHASE DATE: "
@@ -162,6 +164,7 @@
 
             <!-- Text view for "EXPIRY DATE" -->
             <TextView
+                android:id="@+id/DataExpirare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="EXPIRY DATE: "

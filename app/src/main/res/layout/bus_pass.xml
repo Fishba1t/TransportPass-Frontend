@@ -14,15 +14,8 @@
 
 
     <!-- ImageView to display the drawable covering 40% of the screen -->
-    <ImageView
-        android:id="@+id/topHalfImage"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/newlightpurplebackground"
-        android:scaleType="centerCrop" />
 
-<!--        <ImageView-->
+        <!--        <ImageView-->
 <!--            android:id="@+id/logoImageView"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
@@ -33,6 +26,15 @@
 
 
     <!-- ImageButton for back navigation -->
+        <ImageView
+            android:id="@+id/topHalfImage"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/newlightpurplebackground" />
+
         <ImageButton
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
