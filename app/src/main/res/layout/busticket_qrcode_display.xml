@@ -84,7 +84,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/newusersforbuspass2"
+                android:src="@drawable/ticketresized"
                 android:layout_gravity="center_vertical"
                 android:paddingEnd="5dp" />
 
@@ -92,7 +92,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NAME: "
+                android:text="TICKET TYPE: "
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:gravity="center_vertical" />
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/dateto"
                 android:layout_gravity="center_vertical"
-                android:paddingEnd="13dp" />
+                android:paddingEnd="15dp" />
 
             <!-- Text view for "PURCHASE DATE" -->
             <TextView
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/expirationdate48"
                 android:layout_gravity="center_vertical"
-                android:paddingEnd="11dp" />
+                android:paddingEnd="13dp" />
 
             <!-- Text view for "EXPIRY DATE" -->
             <TextView

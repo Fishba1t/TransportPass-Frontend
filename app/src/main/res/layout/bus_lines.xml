@@ -3,161 +3,167 @@
     android:id="@+id/main1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/animation_list"
+    android:background="#E0E0E0"
     android:orientation="vertical"
     tools:context=".BussLines">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/baseline_arrow_back_24"
-            android:contentDescription="Back"/>
-
-
-
-        <!-- Title -->
-        <TextView
-            android:id="@+id/titleTextView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="114dp"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="ALL BUS LINES"
-            android:textColor="@color/white"
-            android:fontFamily="@font/montserrat_bold"
-            android:textSize="24sp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <!-- ImageView to display the image -->
+            <ImageView
+                android:id="@+id/imageViewcluj"
+                android:layout_width="match_parent"
+                android:src="@drawable/hartacluj"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true" />
+
+            <!-- ImageButton for the back arrow -->
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_arrow_back_25"
+                android:contentDescription="Back" />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+        <!-- Legend Items Container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@android:color/transparent"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp">
 
-            <!-- Legend Items -->
+            <!-- Legend Item 1: BUSES -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <View
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@color/redd2"
-                    android:layout_marginEnd="8dp" />
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/border_square_red"
+                    android:layout_marginEnd="4dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BUSES"
-                    android:textColor="@color/redd2"
+                    android:textColor="@android:color/holo_red_dark"
                     android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
+            <!-- Legend Item 2: TROLEYBUSES -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="12dp">
 
                 <View
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@color/greenn2"
-                    android:layout_marginEnd="8dp" />
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/border_square_green"
+                    android:layout_marginEnd="4dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TROLEYBUSES"
-                    android:textColor="@color/greenn2"
+                    android:textColor="@android:color/holo_green_dark"
                     android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
+            <!-- Legend Item 3: TRAMS -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="12dp">
 
                 <View
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@color/bluee"
-                    android:layout_marginEnd="8dp" />
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/border_square_blue"
+                    android:layout_marginEnd="4dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TRAMS"
-                    android:textColor="@color/bluee"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
+            <!-- Legend Item 4: MICROBUSES -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="12dp">
 
                 <View
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@color/orangee"
-                    android:layout_marginEnd="8dp" />
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/border_square_orange"
+                    android:layout_marginEnd="4dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MICROBUSES"
-                    android:textColor="@color/orangee"
+                    android:textColor="@android:color/holo_orange_dark"
                     android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
-
-            <!-- Add more legend items as needed -->
 
         </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-            <!-- Repeat the above LinearLayout pattern for all 17 rows -->
-            <!-- For simplicity, I'm showing only one row here -->
-
-            <!-- Row 1 -->
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="19dp">
 
                 <!-- Column 1 -->
                 <Button
-                    android:id="@+id/linia"
+                    android:id="@+id/linia1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="LINIA 1"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_margin="4dp"/>
+
 
                 <!-- Column 2 -->
                 <Button
@@ -483,7 +489,6 @@
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_margin="4dp"/>
 
-                <!-- Column 4 -->
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -494,14 +499,12 @@
 
             </LinearLayout>
 
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Column 1 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -510,7 +513,6 @@
                 android:text="LINIA 33"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 2 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -519,7 +521,6 @@
                 android:text="LINIA 34"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 3 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -528,7 +529,6 @@
                 android:text="LINIA 35"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 4 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -544,7 +544,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Column 1 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -553,7 +552,6 @@
                 android:text="LINIA 36B"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 2 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -562,7 +560,6 @@
                 android:text="LINIA 37"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 3 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -571,7 +568,6 @@
                 android:text="LINIA 38"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 4 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -587,7 +583,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Column 1 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -596,7 +591,6 @@
                 android:text="LINIA 39L"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 2 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -605,7 +599,6 @@
                 android:text="LINIA 40"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 3 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -614,7 +607,6 @@
                 android:text="LINIA 41"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 4 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -630,7 +622,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Column 1 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -639,7 +630,6 @@
                 android:text="LINIA 43"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 2 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -648,7 +638,6 @@
                 android:text="LINIA 43B"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 3 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -657,7 +646,6 @@
                 android:text="LINIA 43P"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 4 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -674,7 +662,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Column 1 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -683,7 +670,6 @@
                 android:text="LINIA 45"
                 android:layout_margin="4dp"/>
 
-            <!-- Column 2 -->
             <Button
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
@@ -1232,5 +1218,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </ScrollView>
