@@ -9,7 +9,6 @@
     android:paddingBottom="24dp"
     android:background="#E0E0E0">
 
-
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"

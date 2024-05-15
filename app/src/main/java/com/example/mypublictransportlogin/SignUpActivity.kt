@@ -6,16 +6,22 @@ import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.view.View
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import ConnectToServerViewModel
 
 class SignUpActivity : AppCompatActivity() {
     private var passwordEditText: EditText? = null
+    private var firstName: EditText? = null
+    private var lastName: EditText? = null
+    private var cnp: EditText? = null
+    private var email: EditText? = null
     private var confirmPasswordEditText: EditText? = null
     private var passwordIconImageView: ImageView? = null
     private var confirmPasswordIconImageView: ImageView? = null
@@ -26,20 +32,27 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        val backButton = findViewById<ImageButton>(R.id.backButton)
-
-        // Set OnClickListener for the back button to navigate to the MainActivity
-        backButton.setOnClickListener {
-            val intent = Intent(this, LogIn::class.java)
-            startActivity(intent)
-            finish() // Optional: finish SignUpActivity to remove it from the back stack
-        }
+        // Initialize ViewModel
+        val connectToServerViewModel = ConnectToServerViewModel.getInstance()
 
         // Find views
+        firstName = findViewById(R.id.firstNameEditText)
+        lastName = findViewById(R.id.lastNameEditText)
+        email = findViewById(R.id.emailEditText)
+        cnp = findViewById(R.id.ssnEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText)
         passwordIconImageView = findViewById(R.id.passwordIconImageView)
         confirmPasswordIconImageView = findViewById(R.id.confirmPasswordIconImageView)
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.signUpButton).setOnClickListener {
+            val firstNameText = firstName?.text.toString()
+            val lastNameText = lastName?.text.toString()
+            val emailText = email?.text.toString()
+            val cnpText = cnp?.text.toString()
+            val passwordText = passwordEditText?.text.toString()
+            connectToServerViewModel.signup(firstNameText, lastNameText, emailText, cnpText, passwordText)
+        }
 
         // Set OnClickListener for passwordIconImageView to toggle password visibility
         passwordIconImageView?.setOnClickListener {
@@ -66,36 +79,30 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun togglePasswordVisibility() {
-        if (!isPasswordVisible) {
+        val transformationMethod = if (!isPasswordVisible) {
             // Show password
-            passwordEditText!!.transformationMethod = HideReturnsTransformationMethod.getInstance()
-            passwordIconImageView!!.setImageResource(R.drawable.key_icon)
-            isPasswordVisible = true
+            HideReturnsTransformationMethod.getInstance()
         } else {
             // Hide password
-            passwordEditText!!.transformationMethod = PasswordTransformationMethod.getInstance()
-            passwordIconImageView!!.setImageResource(R.drawable.baseline_key_off_24)
-            isPasswordVisible = false
+            PasswordTransformationMethod.getInstance()
         }
-
-        // Move cursor to the end of the password
-        passwordEditText!!.setSelection(passwordEditText!!.text.length)
+        passwordEditText?.transformationMethod = transformationMethod
+        passwordIconImageView?.setImageResource(if (!isPasswordVisible) R.drawable.key_icon else R.drawable.baseline_key_off_24)
+        isPasswordVisible = !isPasswordVisible
+        passwordEditText?.setSelection(passwordEditText?.text?.length ?: 0)
     }
 
     private fun toggleConfirmPasswordVisibility() {
-        if (!isPasswordVisible) {
+        val transformationMethod = if (!isPasswordVisible) {
             // Show password
-            confirmPasswordEditText!!.transformationMethod = HideReturnsTransformationMethod.getInstance()
-            confirmPasswordIconImageView!!.setImageResource(R.drawable.key_icon)
-            isPasswordVisible = true
+            HideReturnsTransformationMethod.getInstance()
         } else {
             // Hide password
-            confirmPasswordEditText!!.transformationMethod = PasswordTransformationMethod.getInstance()
-            confirmPasswordIconImageView!!.setImageResource(R.drawable.baseline_key_off_24)
-            isPasswordVisible = false
+            PasswordTransformationMethod.getInstance()
         }
-
-        // Move cursor to the end of the password
-        confirmPasswordEditText!!.setSelection(confirmPasswordEditText!!.text.length)
+        confirmPasswordEditText?.transformationMethod = transformationMethod
+        confirmPasswordIconImageView?.setImageResource(if (!isPasswordVisible) R.drawable.key_icon else R.drawable.baseline_key_off_24)
+        isPasswordVisible = !isPasswordVisible
+        confirmPasswordEditText?.setSelection(confirmPasswordEditText?.text?.length ?: 0)
     }
 }

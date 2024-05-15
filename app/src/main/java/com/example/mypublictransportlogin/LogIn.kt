@@ -1,4 +1,4 @@
-package com.example.mypublictransportlogin;
+package com.example.mypublictransportlogin
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import ConnectToServerViewModel
 
 class LogIn : AppCompatActivity() {
     private var passwordEditText: EditText? = null
@@ -46,10 +47,14 @@ class LogIn : AppCompatActivity() {
             }
 
             findViewById<com.google.android.material.button.MaterialButton>(R.id.LOGIN).setOnClickListener {
+                val email = findViewById<EditText>(R.id.emailEditText).text.toString()
+                val password = findViewById<EditText>(R.id.passwordEditText).text.toString()
+                val connectToServerViewModel = ConnectToServerViewModel.getInstance()
+                connectToServerViewModel.connectToServer()
+                connectToServerViewModel.login(email, password)
                 val intent5 = Intent(this, ClientMain::class.java)
                 startActivity(intent5)
             }
-
 
             // Apply window insets to handle system UI
             ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

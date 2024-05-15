@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TransPass</string>
     <string name="select">Select Occupation</string>
+    <string name="pass_type">PASS TYPE : %s</string>
+    <string name="valid_since">VALID SINCE : %s</string>
+    <string name="valid_until">VALID UNTIL : %s</string>
 </resources>
