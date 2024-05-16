@@ -13,7 +13,7 @@
         android:layout_margin="10dp"/>
 
     <ImageButton
-        android:id="@+id/closeButtonPass"
+        android:id="@+id/closeButtonTickets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -26,7 +26,7 @@
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NO BUSS PASS FOUND!"
+        android:text="NO TICKETS FOUND!"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -48,7 +48,7 @@
         android:id="@+id/textMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="There was no BUS PASS found. \nYour wallet is empty!\n YOU CAN BUY ONE FROM THE BUTTON BELOW!"
+        android:text="There was no TICKETS found. \nYour wallet is empty!\n YOU CAN BUY THEM FROM THE BUTTON BELOW!"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -63,7 +63,7 @@
         android:id="@+id/buttonregister1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BUY PASS"
+        android:text="BUY TICKETS"
         android:layout_marginStart="149dp"
         android:layout_below="@+id/textMessage"
         android:textColor="@android:color/black"

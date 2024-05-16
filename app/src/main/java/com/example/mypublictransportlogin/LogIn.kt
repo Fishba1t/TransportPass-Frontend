@@ -42,7 +42,7 @@ class LogIn : AppCompatActivity() {
             }
 
             findViewById<TextView>(R.id.forgotPasswordTextView).setOnClickListener {
-                val intent4 = Intent(this, ForgotPasswordActivity::class.java)
+                val intent4 = Intent(this, QRCodeReader::class.java)
                 startActivity(intent4)
             }
 
