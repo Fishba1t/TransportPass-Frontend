@@ -70,39 +70,6 @@ class SelectBox : AppCompatActivity() {
             connectToServerViewModel.buyPass(pass_type,price)
         }
 
-        // Define the list of items
-        val items = arrayOf("Student", "Pensioner", "Standard Pass")
-
-        // Initialize the AutoCompleteTextView
-        autoCompleteTextView = findViewById(R.id.auto_complete_txt)
-
-        // Initialize the ArrayAdapter with the list of items
-        adapterItems = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, items)
-
-        // Set the adapter to the AutoCompleteTextView
-        autoCompleteTextView.setAdapter(adapterItems)
-
-        // Set item click listener
-        autoCompleteTextView.setOnItemClickListener { parent, view, position, id ->
-            // Get the selected item
-            val selectedItem = parent.getItemAtPosition(position).toString()
-
-            // Set the selected item as the text of AutoCompleteTextView
-            autoCompleteTextView.setText(selectedItem)
-
-            // Showing a Toast message with the selected item
-            Toast.makeText(this@SelectBox, "Item $selectedItem selected", Toast.LENGTH_SHORT).show()
-        }
-
-        // Set focus change listener to enable editing
-        autoCompleteTextView.setOnFocusChangeListener { view, hasFocus ->
-            if (hasFocus) {
-                // Clear the text to enable editing
-                autoCompleteTextView.text = null
-                // Enable the AutoCompleteTextView
-                autoCompleteTextView.isEnabled = true
-            }
-        }
         showDisclaimerDialog()
     }
 

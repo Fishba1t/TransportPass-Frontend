@@ -15,6 +15,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import ConnectToServerViewModel
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Toast
 
 class SignUpActivity : AppCompatActivity() {
     private var passwordEditText: EditText? = null
@@ -26,12 +29,56 @@ class SignUpActivity : AppCompatActivity() {
     private var passwordIconImageView: ImageView? = null
     private var confirmPasswordIconImageView: ImageView? = null
     private var isPasswordVisible = false
+    private lateinit var autoCompleteTextView: AutoCompleteTextView
+    private lateinit var adapterItems: ArrayAdapter<String>
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        val backButton = findViewById<ImageButton>(R.id.backButtonsignup)
+
+        // Set OnClickListener for the back button to navigate to the MainActivity
+        backButton.setOnClickListener {
+            val intent = Intent(this, LogIn::class.java)
+            startActivity(intent)
+            finish() // Optional: finish SignUpActivity to remove it from the back stack
+        }
+
+        // Define the list of items
+        val items = arrayOf("Pupil","Student", "Pensioner", "-")
+
+        // Initialize the AutoCompleteTextView
+        autoCompleteTextView = findViewById(R.id.auto_complete_txt)
+
+        // Initialize the ArrayAdapter with the list of items
+        adapterItems = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, items)
+
+        // Set the adapter to the AutoCompleteTextView
+        autoCompleteTextView.setAdapter(adapterItems)
+
+        // Set item click listener
+        autoCompleteTextView.setOnItemClickListener { parent, view, position, id ->
+            // Get the selected item
+            val selectedItem = parent.getItemAtPosition(position).toString()
+
+            // Set the selected item as the text of AutoCompleteTextView
+            autoCompleteTextView.setText(selectedItem)
+
+            // Showing a Toast message with the selected item
+            Toast.makeText(this@SignUpActivity, "Item $selectedItem selected", Toast.LENGTH_SHORT).show()
+        }
+
+        // Set focus change listener to enable editing
+        autoCompleteTextView.setOnFocusChangeListener { view, hasFocus ->
+            if (hasFocus) {
+                // Clear the text to enable editing
+                autoCompleteTextView.text = null
+                // Enable the AutoCompleteTextView
+                autoCompleteTextView.isEnabled = true
+            }
+        }
         // Initialize ViewModel
         val connectToServerViewModel = ConnectToServerViewModel.getInstance()
 

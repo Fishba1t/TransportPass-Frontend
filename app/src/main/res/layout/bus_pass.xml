@@ -13,19 +13,6 @@
         android:layout_height="wrap_content">
 
 
-    <!-- ImageView to display the drawable covering 40% of the screen -->
-
-        <!--        <ImageView-->
-<!--            android:id="@+id/logoImageView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:layout_marginTop="60dp"-->
-<!--            android:src="@drawable/logonou" />-->
-
-
-    <!-- ImageButton for back navigation -->
         <ImageView
             android:id="@+id/topHalfImage"
             android:layout_width="match_parent"
@@ -89,36 +76,6 @@
                 android:textStyle="bold|normal"
                 android:textColor="@color/purple"
                 android:textSize="16sp" />
-
-            <!-- Occupation selection -->
-            <TextView
-                android:id="@+id/selectoccupationid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Please select your occupation:"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_below="@+id/nopassknown"
-                android:textSize="17sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="19dp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/selectboxocc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="@string/select"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_below="@id/selectoccupationid">
-
-                <AutoCompleteTextView
-                    android:id="@+id/auto_complete_txt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text" />
-
-            </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
 
