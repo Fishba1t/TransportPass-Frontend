@@ -57,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
+                android:textColor="@color/black"
                 android:text="Please login with your information"
                 android:textStyle="bold|normal" />
 
@@ -70,32 +71,50 @@
                 android:layout_height="wrap_content"
                 android:alpha="1.9"
                 android:text="Email Address"
+                android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
-            <RelativeLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxBackgroundMode="none"
+                android:background="@drawable/rounded_edittext_bg">
 
-                <EditText
-                    android:id="@+id/emailEditText"
+                <!-- Use a RelativeLayout to position EditText and ImageView -->
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:hint="Enter your email address"
-                    android:textStyle="bold|normal"
-                    android:textSize="14sp" />
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/emailIconImageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@id/emailEditText"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="8dp"
-                    android:src="@drawable/checked_icon" />
-            </RelativeLayout>
+                    <EditText
+                        android:id="@+id/emailEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:hint="Enter your email address"
+                        android:textColorHint="@android:color/black"
+                        android:textColor="@android:color/black"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="14sp"
+                        android:padding="8dp" />
+
+                    <ImageView
+                        android:id="@+id/emailIconImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@id/emailEditText"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/checked_icon" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -107,33 +126,48 @@
                 android:layout_height="wrap_content"
                 android:alpha="1.9"
                 android:text="Password"
+                android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
-            <RelativeLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxBackgroundMode="none"
+                android:background="@drawable/rounded_edittext_bg">
 
-                <EditText
-                    android:id="@+id/passwordEditText"
+                <!-- Use a RelativeLayout to position EditText and ImageView -->
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter your password"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:textSize="14sp"
-                    android:textStyle="bold|normal" />
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/keyIconImageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@id/passwordEditText"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="8dp"
-                    android:src="@drawable/baseline_key_off_24" />
-            </RelativeLayout>
+                    <EditText
+                        android:id="@+id/passwordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:hint="Enter your password"
+                        android:layout_marginEnd="10dp"
+                        android:textColorHint="@android:color/black"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:padding="8dp" />
+
+                    <ImageView
+                        android:id="@+id/keyIconImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@id/passwordEditText"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/baseline_key_off_24" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -198,6 +232,10 @@
                     android:textSize="16sp" />
 
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -9,11 +9,22 @@
     android:paddingBottom="24dp"
     android:background="#E0E0E0">
 
+    <ImageButton
+        android:id="@+id/closeButtonPass"
+        android:layout_width="16dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_close_24"
+        android:contentDescription="Back" />
+
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Disclaimer"
+        android:text="Loading Error"
+        android:layout_marginTop="15dp"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/redd"
@@ -35,7 +46,7 @@
         android:id="@+id/disclaimerTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is a disclaimer message. \nPlease be advised that the displayed prices are the standard ones. \nPENSIONER and STUDENT discount applies at checkout!"
+        android:text="There were EMPTY cells found! \nPlease fill up all the fields!"
         android:textSize="16sp"
         android:textColor="@android:color/black"
         android:layout_below="@id/logoImageView"

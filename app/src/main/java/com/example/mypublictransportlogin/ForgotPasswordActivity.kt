@@ -34,7 +34,7 @@ class ForgotPasswordActivity: AppCompatActivity() {
         }
 
         // Initialize views
-        passwordEditText = findViewById(R.id.passwordEditText)
+        passwordEditText = findViewById(R.id.forgotpasswordEditText)
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText)
         passwordIconImageView = findViewById(R.id.passwordIconImageView)
         confirmPasswordIconImageView = findViewById(R.id.confirmPasswordIconImageView)

@@ -28,6 +28,7 @@
             android:text="WELCOME!"
             android:textSize="24sp"
             android:textColor="@color/purple"
+            android:textStyle="bold"
             android:fontFamily="@font/montserrat_bold"
             android:layout_below="@id/topImage"
             android:layout_marginTop="20dp"
@@ -53,8 +54,10 @@
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
+                    android:id="@+id/mypass"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/passName"
@@ -66,6 +69,7 @@
                         android:fontFamily="@font/montserrat_bold"
                         android:layout_below="@+id/passImage"
                         android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
                         android:layout_marginTop="10dp" />
                     <ImageView
                         android:id="@+id/passImage"
@@ -90,7 +94,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/ticketsName"
@@ -102,7 +107,8 @@
                         android:fontFamily="@font/montserrat_bold"
                         android:layout_below="@+id/ticketsImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/ticketsImage"
                         android:layout_width="70dp"
@@ -137,7 +143,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/Route1"
@@ -149,7 +156,8 @@
                         android:fontFamily="@font/montserrat_bold"
                         android:layout_below="@+id/RoutesImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/RoutesImage"
                         android:layout_width="70dp"
@@ -173,7 +181,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/logoutName"
@@ -185,7 +194,8 @@
                         android:fontFamily="@font/montserrat_bold"
                         android:layout_below="@+id/logoutImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/logoutImage"
                         android:layout_width="70dp"

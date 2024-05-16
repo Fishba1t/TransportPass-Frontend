@@ -40,5 +40,21 @@ class ClientMain : AppCompatActivity() {
             val intent11 = Intent(this, TicketsActivity::class.java)
             startActivity(intent11)
         }
+
+        findViewById<androidx.cardview.widget.CardView>(R.id.myPassCard).setOnClickListener {
+            val intent12 = Intent(this, BusPassQRCode::class.java)
+            startActivity(intent12)
+        }
+
+        findViewById<androidx.cardview.widget.CardView>(R.id.ticketsCard).setOnClickListener {
+            val intent12 = Intent(this, BusTicketQRCode::class.java)
+            startActivity(intent12)
+        }
+
+        findViewById<androidx.cardview.widget.CardView>(R.id.logoutCard).setOnClickListener {
+            val intent12 = Intent(this, LogIn::class.java)
+            startActivity(intent12)
+        }
+
     }
 }

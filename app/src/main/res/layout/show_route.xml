@@ -4,11 +4,11 @@
     android:id="@+id/mainRoute"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/animation_list"
+    android:background="@drawable/resize3"
     tools:context=".ShowRoute">
 
     <ImageButton
-        android:id="@+id/backButton"
+        android:id="@+id/backButtonSelectedRoute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
