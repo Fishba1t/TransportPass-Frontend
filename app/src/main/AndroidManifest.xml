@@ -103,8 +103,6 @@
         <activity android:name=".GreenFriday"
             android:exported="true">
         </activity>
-
-
     </application>
 
 </manifest>
