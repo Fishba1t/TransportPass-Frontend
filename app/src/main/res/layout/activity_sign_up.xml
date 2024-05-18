@@ -317,7 +317,6 @@
 
 
 
-
                 <!-- Sign Up Button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/signUpButton"
@@ -365,6 +364,7 @@
                     android:layout_marginTop="10dp" />
             </LinearLayout>
         </ScrollView>
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

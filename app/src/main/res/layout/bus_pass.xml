@@ -77,7 +77,6 @@
                 android:textColor="@color/purple"
                 android:textSize="16sp" />
 
-
         </RelativeLayout>
 
     <LinearLayout
