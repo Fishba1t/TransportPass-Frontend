@@ -20,15 +20,15 @@ class LogIn : AppCompatActivity() {
     private lateinit var keyIconImageView: ImageView
     private var isPasswordVisible = false
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         try {
             setContentView(R.layout.activity_main)
 
-            // Find views
-            passwordEditText = findViewById(R.id.passwordEditText)
-            keyIconImageView = findViewById(R.id.keyIconImageView)
+        // Find views
+        passwordEditText = findViewById(R.id.passwordEditText)
+        keyIconImageView = findViewById(R.id.keyIconImageView)
+
 
             // Set OnClickListener for keyIconImageView to toggle password visibility
             keyIconImageView?.setOnClickListener {
@@ -72,6 +72,7 @@ class LogIn : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
             // Handle the exception here, such as showing an error message to the user
+
         }
 
         findViewById<MaterialButton>(R.id.LOGIN).setOnClickListener {
@@ -119,7 +120,5 @@ class LogIn : AppCompatActivity() {
             R.drawable.key_icon // "show" icon
         keyIconImageView.setImageResource(iconResId)
     }
-
-
-
 }
+

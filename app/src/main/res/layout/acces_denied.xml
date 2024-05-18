@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#d6d6d6">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="304dp"
-        android:orientation="vertical"
-        android:background="@drawable/popup_background"
-        android:layout_margin="10dp"/>
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
 
     <ImageButton
         android:id="@+id/closeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
         android:src="@drawable/baseline_close_24"
-        android:contentDescription="Back" />
+        android:contentDescription="Close"/>
 
     <TextView
         android:id="@+id/textTitle"
@@ -30,56 +22,53 @@
         android:textColor="@android:color/holo_red_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp" />
-
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
 
     <ImageView
         android:id="@+id/imageAccessDenied"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/accessdenied"
-        android:layout_below="@id/textTitle"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:contentDescription="Access Denied" />
 
-    <!-- Message: The account was not found. Please register! -->
     <TextView
         android:id="@+id/textMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The account was not found. \nPlease register!"
+        android:text="The account was not found.\nPlease register!"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_below="@id/imageAccessDenied"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp" />
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:id="@+id/buttonGotIt1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Got It"
-        android:layout_marginStart="60dp"
-        android:layout_below="@+id/textMessage"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/greenn"
-        android:layout_marginEnd="16dp" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp">
 
-    <!-- "Register" Button -->
-    <Button
-        android:id="@+id/buttonregister1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_marginStart="250dp"
-        android:layout_below="@+id/textMessage"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/purple"
-        android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/buttonGotIt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Got It"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/greenn"
+            android:layout_marginEnd="16dp" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/buttonregister1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/purple"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+</LinearLayout>

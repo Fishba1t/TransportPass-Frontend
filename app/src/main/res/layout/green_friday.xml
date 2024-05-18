@@ -7,19 +7,19 @@
     android:background="@color/white">
 
     <ImageButton
-        android:id="@+id/closeButtonTickets"
+        android:id="@+id/closeButtonGreenFriday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:src="@drawable/baseline_close_24"
-        android:contentDescription="Close"/>
+        android:contentDescription="Close" />
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NO TICKETS FOUND!"
-        android:textColor="@android:color/holo_red_dark"
+        android:text="GREEN FRIDAY!"
+        android:textColor="@color/greenn"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
@@ -29,16 +29,16 @@
         android:id="@+id/imageAccessDenied"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/pageisempty"
+        android:src="@drawable/moneywithwings"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:contentDescription="Access Denied" />
+        android:contentDescription="Money with wings" />
 
     <TextView
         android:id="@+id/textMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="There were no TICKETS found.\nYour wallet is empty!\nYou can buy them from the button below!"
+        android:text="Please note that you do not need to purchase a ticket on Fridays.\nEnjoy your free ride!"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -47,12 +47,12 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/buttonBuyTickets"
+        android:id="@+id/gotitGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BUY TICKETS"
-        android:textColor="@android:color/black"
-        android:backgroundTint="@color/bby_blue1"
+        android:text="GOT IT"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/greenn"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp" />
 

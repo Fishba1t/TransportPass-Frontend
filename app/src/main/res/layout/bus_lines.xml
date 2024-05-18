@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="26dp"
             android:layout_marginTop="8dp">
 
             <!-- Legend Item 1: BUSES -->
@@ -73,7 +73,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BUSES"
+                    android:text="BUS"
                     android:textColor="@android:color/holo_red_dark"
                     android:textStyle="bold"
                     android:textSize="12sp" />
@@ -95,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TROLEYBUSES"
+                    android:text="TROLEYBUS"
                     android:textColor="@android:color/holo_green_dark"
                     android:textStyle="bold"
                     android:textSize="12sp" />
@@ -117,7 +117,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TRAMS"
+                    android:text="TRAM"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textStyle="bold"
                     android:textSize="12sp" />
@@ -139,7 +139,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="MICROBUSES"
+                    android:text="MICROBUS"
                     android:textColor="@android:color/holo_orange_dark"
                     android:textStyle="bold"
                     android:textSize="12sp" />

@@ -7,9 +7,11 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.view.KeyEvent
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -24,6 +26,10 @@ class Payment : AppCompatActivity() {
     private var isCardNumberValid = false
     private var isExpiryDateValid = false
     private var isCvvValid = false
+    private lateinit var confirmationTextView: TextView
+    private lateinit var confirmationNumberTextView: TextView
+    private lateinit var confirmationDateTextView: TextView
+    private lateinit var confirmationCvvTextView: TextView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +63,9 @@ class Payment : AppCompatActivity() {
     }
 
     private fun setupNameOnCardInput() {
+        // Find the TextView by its id
+        confirmationTextView = findViewById(R.id.confirmationNameTextView)
+
         NameOnCard.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // Do nothing
@@ -69,18 +78,27 @@ class Payment : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 val nameOnCard = s.toString().trim()
                 if (nameOnCard.isEmpty()) {
+                    // Clear any existing confirmation message
+                    confirmationTextView.visibility = View.GONE
+                    // Set error message
                     NameOnCard.error = "Name on Card cannot be empty"
-                    isNameOnCardValid=false
+                    isNameOnCardValid = false
                 } else {
-                    NameOnCard.error = "Correct Format" // Clear any existing error message
-                    isNameOnCardValid=true
+                    // Clear error message
+                    NameOnCard.error = null
+                    // Set confirmation message
+                    confirmationTextView.text = "Correct Format"
+                    confirmationTextView.visibility = View.VISIBLE
+                    isNameOnCardValid = true
                 }
             }
         })
     }
 
 
+
     private fun setupCardNumberInput() {
+        confirmationNumberTextView = findViewById(R.id.confirmationNumberTextView)
         cardNumberEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // Do nothing
@@ -93,6 +111,7 @@ class Payment : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 val cardNumber = s.toString().trim()
                 if (cardNumber.length < 16) {
+                    confirmationNumberTextView.visibility = View.GONE
                     cardNumberEditText.error = "Card number must be 16 digits!"
                     isCardNumberValid = false
                 } else if (cardNumber.length > 16) {
@@ -100,10 +119,13 @@ class Payment : AppCompatActivity() {
                     cardNumberEditText.setText(cardNumber.substring(0, 16))
                     cardNumberEditText.setSelection(16) // Move cursor to the end
                 } else {
-                    cardNumberEditText.error = "Correct Format" // Clear any existing error message
+                    // Clear error message
+                    cardNumberEditText.error = null
+                    confirmationNumberTextView.text = "Correct Format"
+                    confirmationNumberTextView.visibility = View.VISIBLE
+                    // Set confirmation message
                     isCardNumberValid = true
                 }
-
             }
         })
 
@@ -122,7 +144,9 @@ class Payment : AppCompatActivity() {
 
 
 
+
     private fun setupExpiryDateInput() {
+        confirmationDateTextView = findViewById(R.id.confirmationDateTextView)
         expiryDateEditText.addTextChangedListener(object : TextWatcher {
             private var current = ""
 
@@ -154,13 +178,16 @@ class Payment : AppCompatActivity() {
                         val isYearValid = lastFourDigits.toIntOrNull() ?: 0 >= 2024
 
                         if (!isMonthValid) {
+                            confirmationDateTextView.visibility=View.GONE
                             expiryDateEditText.error = "Invalid Month"
                             isExpiryDateValid=false
                         } else if (!isYearValid) {
+                            confirmationDateTextView.visibility=View.GONE
                             expiryDateEditText.error = "Invalid Year"
                             isExpiryDateValid=false
                         } else {
-                            expiryDateEditText.error = "Correct Format"
+                            confirmationDateTextView.text="Correct Format"
+                            confirmationDateTextView.visibility = View.VISIBLE
                             isExpiryDateValid=true
                         }
                     }
@@ -178,6 +205,7 @@ class Payment : AppCompatActivity() {
 
 
     private fun setupCvvInput() {
+        confirmationCvvTextView = findViewById(R.id.confirmationCvvTextView)
         cvvEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // Do nothing
@@ -190,6 +218,7 @@ class Payment : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 val cvv = s.toString().trim()
                 if (cvv.length < 3) {
+                    confirmationCvvTextView.visibility=View.GONE
                     cvvEditText.error = "CVV must be 3 digits"
                     isCvvValid=false
                 } else if (cvv.length > 3) {
@@ -197,7 +226,8 @@ class Payment : AppCompatActivity() {
                     cvvEditText.setText(cvv.substring(0, 3))
                     cvvEditText.setSelection(3) // Move cursor to the end
                 } else {
-                    cvvEditText.error = "Correct format" // Clear any existing error message
+                    confirmationCvvTextView.text = "Correct format" // Clear any existing error message
+                    confirmationCvvTextView.visibility=View.VISIBLE
                     isCvvValid=true
                 }
             }

@@ -1,46 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#d6d6d6">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="304dp"
-        android:orientation="vertical"
-        android:background="@drawable/popup_background"
-        android:layout_margin="10dp"/>
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
 
     <ImageButton
         android:id="@+id/closeButtonPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
         android:src="@drawable/baseline_close_24"
-        android:contentDescription="Back" />
+        android:contentDescription="Close" />
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NO BUSS PASS FOUND!"
+        android:text="NO BUS PASS FOUND!"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
-
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
 
     <ImageView
         android:id="@+id/imageAccessDenied"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/pageisempty"
-        android:layout_below="@id/textTitle"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:contentDescription="Access Denied" />
 
@@ -48,26 +38,22 @@
         android:id="@+id/textMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="There was no BUS PASS found. \nYour wallet is empty!\n YOU CAN BUY ONE FROM THE BUTTON BELOW!"
+        android:text="There was no BUS PASS found.\nYour wallet is empty!\nYou can buy one from the button below!"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_below="@id/imageAccessDenied"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp" />
-
+        android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/buttonregister1"
+        android:id="@+id/buttonBuyPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BUY PASS"
-        android:layout_marginStart="149dp"
-        android:layout_below="@+id/textMessage"
         android:textColor="@android:color/black"
         android:backgroundTint="@color/bby_blue1"
-        android:layout_marginEnd="10dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp" />
 
-</RelativeLayout>
+</LinearLayout>
