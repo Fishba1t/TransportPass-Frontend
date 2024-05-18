@@ -67,7 +67,7 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
                 Log.d("SERVER", "Sending login request")
                 // Crearea unui JSONObject pentru cererea de login
                 val loginRequest = JSONObject().apply {
-                    put("type", "LoginClient")
+                    put("type", "Login")
                     put("email", email)
                     put("parola", password)
                 }
@@ -253,7 +253,12 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
                     val dataExpirare = jsonResponse.getString("dataExpirare")
                     val tip = jsonResponse.getString("tip")
                     val pret = jsonResponse.getDouble("pret")
-                    abonament = AbonamentDetails(dataIncepere,dataExpirare,tip,pret)
+                    val qrJSONArray = jsonResponse.getJSONArray("qr")
+                    val qrByteArray = ByteArray(qrJSONArray.length())
+                    for (i in 0 until qrJSONArray.length()) {
+                        qrByteArray[i] = qrJSONArray.getInt(i).toByte()
+                    }
+                    abonament = AbonamentDetails(dataIncepere,dataExpirare,tip,pret,qrByteArray)
                 }
                 response
             } catch (e: IOException) {
@@ -292,5 +297,6 @@ data class AbonamentDetails(
     val dataIncepere: String,
     val dataExpirare: String,
     val tip: String,
-    val pret: Double
+    val pret: Double,
+    val qr: ByteArray
 )

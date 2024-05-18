@@ -20,22 +20,16 @@ class LogIn : AppCompatActivity() {
     private lateinit var keyIconImageView: ImageView
     private var isPasswordVisible = false
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // Find views
-        passwordEditText = findViewById(R.id.passwordEditTextlogin)
-        keyIconImageView = findViewById(R.id.keyIconImageViewlogin)
+        passwordEditText = findViewById(R.id.passwordEditText)
+        keyIconImageView = findViewById(R.id.keyIconImageView)
 
         // Set initial state of the password field
         passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
-
-        // Set OnClickListener for keyIconImageView to toggle password visibility
-        keyIconImageView.setOnClickListener {
-            togglePasswordVisibility()
-        }
 
         // Set OnClickListener for createAccount TextView
         findViewById<TextView>(R.id.createAccount).setOnClickListener {
@@ -44,7 +38,7 @@ class LogIn : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.forgotPasswordTextView).setOnClickListener {
-            val intent4 = Intent(this, ForgotPasswordActivity::class.java)
+            val intent4 = Intent(this, QRCodeReader::class.java)
             startActivity(intent4)
         }
 
@@ -93,7 +87,5 @@ class LogIn : AppCompatActivity() {
             R.drawable.key_icon // "show" icon
         keyIconImageView.setImageResource(iconResId)
     }
-
-
-
 }
+
