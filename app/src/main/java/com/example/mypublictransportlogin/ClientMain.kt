@@ -27,15 +27,8 @@ class ClientMain : AppCompatActivity() {
 
         findViewById<androidx.cardview.widget.CardView>(R.id.myPassCard).setOnClickListener {
             connectToServerViewModel.show_pass()
-            //val context = it.context
-            //GlobalScope.launch {
-                //val abonament: AbonamentDetails = connectToServerViewModel.getAbonamentDetails()
-                // Use the abonament here
-                //Log.d("SERVER","CLIENT MAIN ABONAMENTUL ESTE : $abonament")
-                val intent = Intent(this,BusPassQRCode::class.java)
-                startActivity(intent)
-            //}
-
+            val intent = Intent(this,BusPassQRCode::class.java)
+            startActivity(intent)
         }
 
         findViewById<androidx.cardview.widget.CardView>(R.id.BuyPassCard).setOnClickListener {

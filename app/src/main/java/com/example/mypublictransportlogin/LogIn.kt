@@ -23,29 +23,55 @@ class LogIn : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        try {
+            setContentView(R.layout.activity_main)
 
-        // Find views
-        passwordEditText = findViewById(R.id.passwordEditTextlogin)
-        keyIconImageView = findViewById(R.id.keyIconImageViewlogin)
+            // Find views
+            passwordEditText = findViewById(R.id.passwordEditText)
+            keyIconImageView = findViewById(R.id.keyIconImageView)
 
-        // Set initial state of the password field
-        passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
+            // Set OnClickListener for keyIconImageView to toggle password visibility
+            keyIconImageView?.setOnClickListener {
+                togglePasswordVisibility()
+            }
 
-        // Set OnClickListener for keyIconImageView to toggle password visibility
-        keyIconImageView.setOnClickListener {
-            togglePasswordVisibility()
-        }
+            // Set OnClickListener for createAccount TextView
+            findViewById<TextView>(R.id.createAccount).setOnClickListener {
+                val intent = Intent(this, SignUpActivity::class.java)
+                startActivity(intent)
+            }
 
-        // Set OnClickListener for createAccount TextView
-        findViewById<TextView>(R.id.createAccount).setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-        }
+            findViewById<TextView>(R.id.forgotPasswordTextView).setOnClickListener {
+                val intent4 = Intent(this, QRCodeReader::class.java)
+                startActivity(intent4)
+            }
 
-        findViewById<TextView>(R.id.forgotPasswordTextView).setOnClickListener {
-            val intent4 = Intent(this, ForgotPasswordActivity::class.java)
-            startActivity(intent4)
+            findViewById<com.google.android.material.button.MaterialButton>(R.id.LOGIN).setOnClickListener {
+                val email = findViewById<EditText>(R.id.emailEditText).text.toString()
+                val password = findViewById<EditText>(R.id.passwordEditText).text.toString()
+                val connectToServerViewModel = ConnectToServerViewModel.getInstance()
+                connectToServerViewModel.connectToServer()
+                connectToServerViewModel.login(email, password)
+                val intent5 = Intent(this, ClientMain::class.java)
+                startActivity(intent5)
+            }
+
+            // Apply window insets to handle system UI
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+                insets
+            }
+
+            // Start animation
+            val relativeLayout = findViewById<RelativeLayout>(R.id.main)
+            val animationDrawable = relativeLayout.background as AnimationDrawable
+            animationDrawable.setEnterFadeDuration(3500)
+            animationDrawable.setExitFadeDuration(5000)
+            animationDrawable.start()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            // Handle the exception here, such as showing an error message to the user
         }
 
         findViewById<MaterialButton>(R.id.LOGIN).setOnClickListener {
