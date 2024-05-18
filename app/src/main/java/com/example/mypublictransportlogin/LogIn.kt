@@ -13,11 +13,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import ConnectToServerViewModel
+import com.google.android.material.button.MaterialButton
 
 class LogIn : AppCompatActivity() {
-    private var passwordEditText: EditText? = null
-    private var keyIconImageView: ImageView? = null
+    private lateinit var passwordEditText: EditText
+    private lateinit var keyIconImageView: ImageView
     private var isPasswordVisible = false
 
     @SuppressLint("MissingInflatedId")
@@ -73,6 +73,30 @@ class LogIn : AppCompatActivity() {
             e.printStackTrace()
             // Handle the exception here, such as showing an error message to the user
         }
+
+        findViewById<MaterialButton>(R.id.LOGIN).setOnClickListener {
+            val email = findViewById<EditText>(R.id.emailEditText).text.toString()
+            val password = passwordEditText.text.toString()
+            val connectToServerViewModel = ConnectToServerViewModel.getInstance()
+            connectToServerViewModel.connectToServer()
+            connectToServerViewModel.login(email, password)
+            val intent5 = Intent(this, ClientMain::class.java)
+            startActivity(intent5)
+        }
+
+        // Apply window insets to handle system UI
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // Start animation
+        val relativeLayout = findViewById<RelativeLayout>(R.id.main)
+        val animationDrawable = relativeLayout.background as AnimationDrawable
+        animationDrawable.setEnterFadeDuration(3500)
+        animationDrawable.setExitFadeDuration(5000)
+        animationDrawable.start()
     }
 
     private fun togglePasswordVisibility() {
@@ -83,16 +107,19 @@ class LogIn : AppCompatActivity() {
         else
             PasswordTransformationMethod.getInstance()
 
-        passwordEditText?.transformationMethod = transformationMethod
+        passwordEditText.transformationMethod = transformationMethod
 
         // Move cursor to the end of the password
-        passwordEditText?.setSelection(passwordEditText?.text?.length ?: 0)
+        passwordEditText.setSelection(passwordEditText.text.length)
 
-        // Update key icon
+        // Update key icon immediately
         val iconResId = if (isPasswordVisible)
-            R.drawable.key_icon
+            R.drawable.baseline_key_off_24 // "hide" icon
         else
-            R.drawable.baseline_key_off_24
-        keyIconImageView?.setImageResource(iconResId)
+            R.drawable.key_icon // "show" icon
+        keyIconImageView.setImageResource(iconResId)
     }
+
+
+
 }

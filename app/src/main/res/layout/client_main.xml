@@ -123,11 +123,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/row2"
+            android:id="@+id/row3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@id/row1"
+            android:layout_below="@id/row2"
             android:layout_marginTop="10dp"
             android:padding="10dp">
 
@@ -150,7 +150,7 @@
                         android:id="@+id/Route1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SHOW ROUTES"
+                        android:text="BUS LINEUP"
                         android:textSize="20sp"
                         android:textColor="@color/purple"
                         android:fontFamily="@font/montserrat_bold"
@@ -209,36 +209,93 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
+
         <LinearLayout
-            android:id="@+id/row3"
+            android:id="@+id/row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/row1"
             android:orientation="horizontal"
-            android:layout_below="@id/row2"
             android:layout_marginTop="10dp"
             android:padding="10dp">
 
-            <!-- Button 1: BUY PASS -->
-            <Button
+            <!-- CardView -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/BuyPassCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="BUY PASS"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@color/purple" />
+                android:layout_margin="10dp"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
 
-            <!-- Button 2: BUY TICKETS -->
-            <Button
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/buy_pass_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BUY PASS"
+                        android:textSize="20sp"
+                        android:textColor="@color/purple"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:layout_below="@+id/buy_pass_image"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"/>
+                    <ImageView
+                        android:id="@+id/buy_pass_image"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/buy_bus_pass_nou"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:layout_alignParentTop="true" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:id="@+id/BuyTicketButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="BUY TICKETS"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@color/purple"
-                android:layout_marginStart="10dp" />
+                android:layout_margin="10dp"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/buy_ticktes_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BUY TICKTES"
+                        android:textSize="20sp"
+                        android:textColor="@color/purple"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:layout_below="@+id/buy_ticktes_image"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"/>
+                    <ImageView
+                        android:id="@+id/buy_ticktes_image"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/buy_tickets1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:layout_alignParentTop="true" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

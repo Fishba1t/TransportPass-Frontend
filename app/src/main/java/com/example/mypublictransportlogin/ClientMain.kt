@@ -31,12 +31,12 @@ class ClientMain : AppCompatActivity() {
             startActivity(intent)
         }
 
-        findViewById<Button>(R.id.BuyPassCard).setOnClickListener {
+        findViewById<androidx.cardview.widget.CardView>(R.id.BuyPassCard).setOnClickListener {
             val intent11 = Intent(this, SelectBox::class.java)
             startActivity(intent11)
         }
 
-        findViewById<Button>(R.id.BuyTicketButton).setOnClickListener {
+        findViewById<androidx.cardview.widget.CardView>(R.id.BuyTicketButton).setOnClickListener {
             val intent11 = Intent(this, TicketsActivity::class.java)
             startActivity(intent11)
         }

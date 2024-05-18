@@ -96,6 +96,10 @@
 
         </activity>
 
+        <activity android:name=".Payment"
+            android:exported="true">
+        </activity>
+
 
     </application>
 
