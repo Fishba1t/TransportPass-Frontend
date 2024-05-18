@@ -1,8 +1,10 @@
 package com.example.mypublictransportlogin
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +41,9 @@ class QRCodeReader : AppCompatActivity() {
 
     private fun setResult(string:String){
         binding.textResult.text=string
+        binding.textResult1.text=string
+        binding.textResult2.text=string
+        binding.textResult3.text=string
     }
 
     private fun showCamera() {
@@ -57,6 +62,15 @@ class QRCodeReader : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         initBinding()
         initViews()
+
+        val backButton = findViewById<ImageButton>(R.id.backButtonqr_scanner)
+
+        // Set OnClickListener for the back button to navigate to the MainActivity
+        backButton.setOnClickListener {
+            val intent = Intent(this, LogIn::class.java)
+            startActivity(intent)
+            finish() // Optional: finish SignUpActivity to remove it from the back stack
+        }
     }
 
     private fun initViews() {

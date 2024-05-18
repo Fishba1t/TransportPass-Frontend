@@ -160,7 +160,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA 1"
+                    android:text="LINIA    1"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_margin="4dp"/>
 
@@ -170,7 +170,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA 2"
+                    android:text="LINIA   2"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_margin="4dp"/>
 
@@ -180,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_green_dark"
-                    android:text="LINIA 3"
+                    android:text="LINIA   3"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 4 -->
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_weight="1"
-                    android:text="LINIA 4"
+                    android:text="LINIA   4"
                     android:layout_margin="4dp"/>
 
             </LinearLayout>
@@ -206,7 +206,7 @@
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA 5"
+                    android:text="LINIA   5"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 2 -->
@@ -215,7 +215,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA 6"
+                    android:text="LINIA   6"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 3 -->
@@ -224,7 +224,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA 7"
+                    android:text="LINIA   7"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 4 -->
@@ -233,7 +233,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA 8"
+                    android:text="LINIA   8"
                     android:layout_margin="4dp"/>
 
             </LinearLayout>
@@ -259,7 +259,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA 9"
+                    android:text="LINIA    9"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 3 -->

@@ -144,7 +144,7 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/passwordEditText"
+                        android:id="@+id/passwordEditTextlogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
@@ -156,10 +156,10 @@
                         android:padding="8dp" />
 
                     <ImageView
-                        android:id="@+id/keyIconImageView"
+                        android:id="@+id/keyIconImageViewlogin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignEnd="@id/passwordEditText"
+                        android:layout_alignEnd="@id/passwordEditTextlogin"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="8dp"
                         android:src="@drawable/baseline_key_off_24" />
@@ -217,6 +217,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Don't have an account?"
+                    android:textStyle="bold"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 

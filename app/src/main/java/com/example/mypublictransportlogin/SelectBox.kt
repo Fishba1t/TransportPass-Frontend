@@ -26,6 +26,8 @@ class SelectBox : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bus_pass)
+        
+
         val connectToServerViewModel = ConnectToServerViewModel.getInstance()
         findViewById<LinearLayout>(R.id.firstpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.firstpass) as LinearLayout, "URBAN PASS", "150.00 RON")
@@ -67,6 +69,8 @@ class SelectBox : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.paymentButton).setOnClickListener {
+            val intent19 = Intent(this, Payment::class.java)
+            startActivity(intent19)
             connectToServerViewModel.buyPass(pass_type,price)
         }
 
