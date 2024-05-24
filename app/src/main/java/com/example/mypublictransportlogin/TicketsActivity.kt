@@ -4,6 +4,7 @@ import ConnectToServerViewModel
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -17,9 +18,13 @@ class TicketsActivity : AppCompatActivity() {
     private lateinit var pass_type : String
     private var price : Double = 0.0
 
+    companion object {
+        const val EXTRA_PASS_TYPE_TICKET = "com.example.mypublictransportlogin.PASS_TYPE_TICKET"
+        const val EXTRA_PRICE_TICKET = "com.example.mypublictransportlogin.PRICE_TICKET"
+    }
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
-        val connectToServerViewModel = ConnectToServerViewModel.getInstance()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bus_ticket)
 
@@ -58,7 +63,16 @@ class TicketsActivity : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.paymentButton)?.setOnClickListener{
-            connectToServerViewModel.buyTicket(pass_type,price)
+            if(price!=0.0){
+                val intent19 = Intent(this, Payment::class.java).apply {
+                    putExtra(EXTRA_PASS_TYPE_TICKET, pass_type)
+                    putExtra(EXTRA_PRICE_TICKET, price)
+                }
+                startActivity(intent19)
+            }
+            else{
+                Log.d("SERVER","PRETUL NU ESTE SETAT")
+            }
         }
     }
 

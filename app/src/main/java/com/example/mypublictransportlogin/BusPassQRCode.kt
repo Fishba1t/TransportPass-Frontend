@@ -2,6 +2,7 @@ package com.example.mypublictransportlogin
 
 import AbonamentDetails
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -18,9 +19,14 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.Calendar
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class BusPassQRCode : AppCompatActivity() {
     private lateinit var abonament: AbonamentDetails
+    private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    private lateinit var dialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +54,54 @@ class BusPassQRCode : AppCompatActivity() {
 
             // Set the Bitmap as the source of the ImageView
             qrBitmap?.let { imageview.setImageBitmap(it) }
+
+
+            val currentDate = Calendar.getInstance().time
+            val expirationDate = dateFormat.parse(abonament.dataExpirare)
+            expirationDate?.let {
+                val diff = it.time - currentDate.time
+                val daysLeft = diff / (1000 * 60 * 60 * 24)
+                if (daysLeft in 0..3) {
+                    showReminderDialog()
+                }
+            }
         }
+
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+
+        // Set OnClickListener for the back button to navigate to the MainActivity
+        backButton.setOnClickListener {
+            val intent = Intent(this, ClientMain::class.java)
+            startActivity(intent)
+            finish() // Optional: finish SignUpActivity to remove it from the back stack
+        }
+
+
+    }
+
+    private fun showReminderDialog() {
+        dialog = Dialog(this)
+
+        // Set the content view to the disclaimer layout
+        dialog.setContentView(R.layout.three_days_left_reminder)
+
+        // Find the OK button in the dialog layout
+        val okButton = dialog.findViewById<Button>(R.id.okReminder)
+
+        val close = dialog.findViewById<ImageButton>(R.id.closeButtonReminder)
+
+        // Set a click listener for the OK button to dismiss the dialog
+        okButton.setOnClickListener {
+            dialog.dismiss() // Dismiss the dialog when OK is clicked
+        }
+
+        close.setOnClickListener {
+            dialog.dismiss() // Dismiss the dialog when OK is clicked
+        }
+
+
+        // Show the dialog
+        dialog.show()
     }
 
     private fun byteArrayToBitmap(byteArray: ByteArray): Bitmap? {

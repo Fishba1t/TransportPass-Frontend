@@ -1,5 +1,6 @@
 package com.example.mypublictransportlogin
 
+import QRDetails
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,13 +10,16 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.mypublictransportlogin.databinding.QrCodeReaderBinding
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
+import kotlinx.coroutines.launch
 
 class QRCodeReader : AppCompatActivity() {
-
+    private lateinit var qrcodedetails : QRDetails
+    val connectToServerViewModel = ConnectToServerViewModel.getInstance()
     private val requestPermissionLauncher=
         registerForActivityResult(ActivityResultContracts.RequestPermission()){
                 isGranted: Boolean ->
@@ -33,17 +37,30 @@ class QRCodeReader : AppCompatActivity() {
                 if (result.contents == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
                 } else {
-                    setResult(result.contents)
+
+
+                    val contentInt: Int? = result.contents.toIntOrNull()
+
+                    if (contentInt != null) {
+                        connectToServerViewModel.InfoQR(contentInt)
+                    }
+                    lifecycleScope.launch {
+                        qrcodedetails = connectToServerViewModel.getQRInfo()
+                        setResult()
+                        connectToServerViewModel.resetQRInfo()
+                    }
+
                 }
             }
         }
     private lateinit var binding: QrCodeReaderBinding
 
-    private fun setResult(string:String){
-        binding.textResult.text=string
-        binding.textResult1.text=string
-        binding.textResult2.text=string
-        binding.textResult3.text=string
+    private fun setResult(){
+
+        binding.textResult.text="VALID!"
+        binding.textResult1.text=qrcodedetails.nume
+        binding.textResult2.text=qrcodedetails.dataExpirare
+        binding.textResult3.text=qrcodedetails.tip
     }
 
     private fun showCamera() {
@@ -67,6 +84,7 @@ class QRCodeReader : AppCompatActivity() {
 
         // Set OnClickListener for the back button to navigate to the MainActivity
         backButton.setOnClickListener {
+            connectToServerViewModel.setTipClient()
             val intent = Intent(this, LogIn::class.java)
             startActivity(intent)
             finish() // Optional: finish SignUpActivity to remove it from the back stack

@@ -2,10 +2,12 @@ package com.example.mypublictransportlogin
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
@@ -30,17 +32,32 @@ class Payment : AppCompatActivity() {
     private lateinit var confirmationNumberTextView: TextView
     private lateinit var confirmationDateTextView: TextView
     private lateinit var confirmationCvvTextView: TextView
+    private lateinit var passType: String
+    private var price: Double = 0.0
+    private var x :Int =0
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.payment_activity)
+        val connectToServerViewModel = ConnectToServerViewModel.getInstance()
+        passType = intent.getStringExtra(SelectBox.EXTRA_PASS_TYPE_PASS) ?: ""
+        price = intent.getDoubleExtra(SelectBox.EXTRA_PRICE_PASS, 0.0)
+        Log.d("SERVER","PASS TYPE : $passType")
+        Log.d("SERVER","PRICE: $price")
+        if (passType.isEmpty() && price == 0.0) {
+            passType = intent.getStringExtra(TicketsActivity.EXTRA_PASS_TYPE_TICKET) ?: ""
+            price = intent.getDoubleExtra(TicketsActivity.EXTRA_PRICE_TICKET, 0.0)
+            x=1
+        }
 
         val closeButton: ImageButton = findViewById(R.id.closeButtonPass)
         closeButton.setOnClickListener {
             finish()
         }
 
+        var totalPayText= findViewById<TextView>(R.id.TotalPayText)
+        totalPayText.text = getString(R.string.total_to_pay, price)
 
         cardNumberEditText = findViewById(R.id.NumberOnCard)
         expiryDateEditText = findViewById(R.id.DateOnCard)
@@ -55,7 +72,14 @@ class Payment : AppCompatActivity() {
 
         payButton.setOnClickListener {
             if (validateForm()) {
-                showConfirmationDialog()
+                if(x==0) {
+                    connectToServerViewModel.buyPass(passType, price)
+                    showConfirmationDialog()
+                }
+                else{
+                    connectToServerViewModel.buyTicket(passType, price)
+                    showConfirmationDialog()
+                }
             } else {
                 Toast.makeText(this, "Please complete all the inputs!", Toast.LENGTH_LONG).show()
             }
@@ -260,6 +284,8 @@ class Payment : AppCompatActivity() {
         dialogBuilder.setMessage("Payment was successful!")
         dialogBuilder.setPositiveButton("OK") { dialog, _ ->
             dialog.dismiss()
+            val intent = Intent(this, ClientMain::class.java)
+            startActivity(intent)
             finish()
         }
         val alertDialog = dialogBuilder.create()

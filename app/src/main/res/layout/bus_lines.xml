@@ -167,6 +167,7 @@
 
                 <!-- Column 2 -->
                 <Button
+                    android:id="@+id/linia2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -176,20 +177,22 @@
 
                 <!-- Column 3 -->
                 <Button
+                    android:id="@+id/linia3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_green_dark"
-                    android:text="LINIA   3"
+                    android:text="LINIA    3"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 4 -->
                 <Button
+                    android:id="@+id/linia4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_weight="1"
-                    android:text="LINIA   4"
+                    android:text="LINIA    4"
                     android:layout_margin="4dp"/>
 
             </LinearLayout>
@@ -202,38 +205,42 @@
 
                 <!-- Column 1 -->
                 <Button
+                    android:id="@+id/linia5"
                     android:layout_width="0dp"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA   5"
+                    android:text="LINIA    5"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 2 -->
                 <Button
+                    android:id="@+id/linia6"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA   6"
+                    android:text="LINIA    6"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 3 -->
                 <Button
+                    android:id="@+id/linia7"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA   7"
+                    android:text="LINIA    7"
                     android:layout_margin="4dp"/>
 
                 <!-- Column 4 -->
                 <Button
+                    android:id="@+id/linia8"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="LINIA   8"
+                    android:text="LINIA    8"
                     android:layout_margin="4dp"/>
 
             </LinearLayout>
@@ -246,6 +253,7 @@
 
                 <!-- Column 1 -->
                 <Button
+                    android:id="@+id/linia8l"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -255,6 +263,7 @@
 
                 <!-- Column 2 -->
                 <Button
+                    android:id="@+id/linia9"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -264,6 +273,7 @@
 
                 <!-- Column 3 -->
                 <Button
+                    android:id="@+id/linia10"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -273,6 +283,7 @@
 
                 <!-- Column 4 -->
                 <Button
+                    android:id="@+id/linia14"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -289,6 +300,7 @@
 
                 <!-- Column 1 -->
                 <Button
+                    android:id="@+id/linia18"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -298,6 +310,7 @@
 
                 <!-- Column 2 -->
                 <Button
+                    android:id="@+id/linia19"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -307,6 +320,7 @@
 
                 <!-- Column 3 -->
                 <Button
+                    android:id="@+id/linia20"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -316,6 +330,7 @@
 
                 <!-- Column 4 -->
                 <Button
+                    android:id="@+id/linia21"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -333,6 +348,7 @@
 
                 <!-- Column 1 -->
                 <Button
+                    android:id="@+id/linia22"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -342,6 +358,7 @@
 
                 <!-- Column 2 -->
                 <Button
+                    android:id="@+id/linia23"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -351,6 +368,7 @@
 
                 <!-- Column 3 -->
                 <Button
+                    android:id="@+id/linia24"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -360,6 +378,7 @@
 
                 <!-- Column 4 -->
                 <Button
+                    android:id="@+id/linia24b"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -377,6 +396,7 @@
 
                 <!-- Column 1 -->
                 <Button
+                    android:id="@+id/linia25"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -386,6 +406,7 @@
 
                 <!-- Column 2 -->
                 <Button
+                    android:id="@+id/linia26"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -395,6 +416,7 @@
 
                 <!-- Column 3 -->
                 <Button
+                    android:id="@+id/linia26l"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -404,6 +426,7 @@
 
                 <!-- Column 4 -->
                 <Button
+                    android:id="@+id/linia27"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -420,6 +443,7 @@
 
                 <!-- Column 1 -->
                 <Button
+                    android:id="@+id/linia28"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -429,6 +453,7 @@
 
                 <!-- Column 2 -->
                 <Button
+                    android:id="@+id/linia28b"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -438,6 +463,7 @@
 
                 <!-- Column 3 -->
                 <Button
+                    android:id="@+id/linia29"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -447,6 +473,7 @@
 
                 <!-- Column 4 -->
                 <Button
+                    android:id="@+id/linia29s"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -464,6 +491,7 @@
 
                 <!-- Column 1 -->
                 <Button
+                    android:id="@+id/linia30"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -473,6 +501,7 @@
 
                 <!-- Column 2 -->
                 <Button
+                    android:id="@+id/linia31"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -482,6 +511,7 @@
 
                 <!-- Column 3 -->
                 <Button
+                    android:id="@+id/linia32"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -490,6 +520,7 @@
                     android:layout_margin="4dp"/>
 
                 <Button
+                    android:id="@+id/linia32b"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -506,6 +537,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/linia33"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -514,6 +546,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia34"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -522,6 +555,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia35"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -530,6 +564,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia36b"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -545,14 +580,16 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/linia36l"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="LINIA 36B"
+                android:text="LINIA 36L"
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia37"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -561,6 +598,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia38"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -569,6 +607,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia39"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -584,6 +623,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/linia39L"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -592,6 +632,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia40"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -600,6 +641,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia41"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -608,6 +650,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia42"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -623,6 +666,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/linia43"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -631,6 +675,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia43b"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -639,6 +684,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia43p"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -647,6 +693,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia44"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -663,6 +710,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/linia45"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -671,6 +719,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
+                android:id="@+id/linia46"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -680,6 +729,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/linia46b"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -689,6 +739,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/linia46l"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -706,6 +757,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/linia47"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -715,6 +767,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/linia48"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -724,6 +777,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/linia48l"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -733,6 +787,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/linia50"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -750,6 +805,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/linia50d"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -759,6 +815,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/linia50l"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -768,6 +825,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/linia52"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -777,6 +835,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/linia52l"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -794,6 +853,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/linia53"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -803,6 +863,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/linia100"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -812,6 +873,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/linia100l"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -821,6 +883,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/linia101"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -838,6 +901,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/linia102"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -847,6 +911,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/linia102l"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -856,6 +921,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/liniam11"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -865,6 +931,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/liniam12"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -882,6 +949,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/liniam13"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -891,6 +959,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/liniam16"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -900,6 +969,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/liniam18"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -909,6 +979,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/liniam17"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -926,6 +997,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/liniam21"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -935,6 +1007,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/liniam22"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -944,6 +1017,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/liniam23"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -953,6 +1027,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/liniam24"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -970,6 +1045,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/liniam25"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -979,6 +1055,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/liniam26"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -988,6 +1065,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/liniam31"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -997,6 +1075,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/liniam32"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1013,6 +1092,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/liniam33"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1022,6 +1102,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/liniam34"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1031,6 +1112,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/linia34b"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1040,6 +1122,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/liniam35"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1055,6 +1138,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/liniam37"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1064,6 +1148,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/liniam38"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1073,6 +1158,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/liniam39"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1082,6 +1168,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/linia39l"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1097,6 +1184,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/liniam41"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1106,6 +1194,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/liniam41l"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1115,6 +1204,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/liniam42"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1124,6 +1214,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/liniam42l"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1139,6 +1230,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/liniam43"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1148,6 +1240,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/liniam44"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1157,6 +1250,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/liniam45"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1166,6 +1260,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/liniam51"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1181,6 +1276,7 @@
 
             <!-- Column 1 -->
             <Button
+                android:id="@+id/liniam52"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1190,6 +1286,7 @@
 
             <!-- Column 2 -->
             <Button
+                android:id="@+id/liniam61"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1199,6 +1296,7 @@
 
             <!-- Column 3 -->
             <Button
+                android:id="@+id/liniam71"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1208,6 +1306,7 @@
 
             <!-- Column 4 -->
             <Button
+                android:id="@+id/liniam81"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

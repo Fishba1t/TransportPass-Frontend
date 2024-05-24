@@ -7,38 +7,39 @@
     android:background="@color/white">
 
     <ImageButton
-        android:id="@+id/closeButtonTickets"
+        android:id="@+id/closeButtonReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:src="@drawable/baseline_close_24"
-        android:contentDescription="Close"/>
+        android:contentDescription="Close" />
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NO TICKETS FOUND!"
-        android:textColor="@android:color/holo_red_dark"
+        android:text="REMINDER!"
+        android:textColor="@color/orangee2"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp" />
 
     <ImageView
-        android:id="@+id/imageAccessDenied"
+        android:id="@+id/imageReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/pageisempty"
+        android:src="@drawable/reminder"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:contentDescription="Access Denied" />
+        android:contentDescription="Money with wings"
+        android:backgroundTint="@color/white" />
 
     <TextView
         android:id="@+id/textMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="There were no TICKETS found.\nYour wallet is empty!\nYou can buy them from the button below!"
+        android:text="BE AWARE!\n There are only 3 days left until your BUS PASS expires!"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -47,12 +48,12 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/BuyTicketsDisclaimer"
+        android:id="@+id/okReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BUY TICKETS"
-        android:textColor="@android:color/black"
-        android:backgroundTint="@color/bby_blue1"
+        android:text="OK"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/orangee2"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp" />
 

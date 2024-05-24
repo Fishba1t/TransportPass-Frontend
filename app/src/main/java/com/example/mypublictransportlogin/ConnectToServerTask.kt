@@ -6,20 +6,62 @@ import java.io.*
 import java.net.InetSocketAddress
 import java.net.Socket
 
+import android.os.Parcel
+import android.os.Parcelable
+
 class ConnectToServerViewModel private constructor() : ViewModel() {
-    private var port = 55556
-    private var serverAddress = "172.23.64.1"
+    private var port = 34520
+    private var serverAddress = "192.168.221.189"
     private val socket = Socket()
     private lateinit var outputStreamDeferred: OutputStream
     private lateinit var writer: PrintWriter
     private lateinit var inputStreamDeferred :InputStream
     private lateinit var reader: BufferedReader
     private val lock = Any()
+    private lateinit var tip_client :String
     private var isConnected = false
     private lateinit var abonament : AbonamentDetails
-
+    private lateinit var orar : Orar
+    lateinit var ticketList: MutableList<Ticket>
+    private var SIZE_TICKET :Int=-1
+    private lateinit var SignupResponse : String
+    private lateinit var ShowPassResponse :String
+    private lateinit var PassExists : String
+    private lateinit var QRDETAILS : QRDetails
     init {
         //connectToServer()
+    }
+
+    fun setTipClient() {
+        tip_client = ""
+    }
+
+    fun setAbonament() {
+        abonament = AbonamentDetails("","","",-1.00, byteArrayOf()) // Instanță implicită a clasei AbonamentDetails
+    }
+
+    fun setOrar() {
+        orar = Orar(byteArrayOf()) // Instanță implicită a clasei Orar
+    }
+
+    fun setTicketList() {
+        ticketList = mutableListOf()
+    }
+
+    fun setSignupResponse() {
+        SignupResponse = ""
+    }
+
+    fun setShowPassResponse() {
+        ShowPassResponse = ""
+    }
+
+    fun setPassExists() {
+        PassExists = ""
+    }
+
+    fun resetTicketSize(){
+        SIZE_TICKET=-1
     }
 
     companion object {
@@ -33,32 +75,109 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
         }
     }
 
+
+
+    fun InfoQR(id: Int){
+        GlobalScope.launch {
+            InfoQRSuspend(id)
+        }
+    }
+
+
+
+
     private suspend fun ensureConnected() {
         while (!isConnected) {
             delay(100)
         }
     }
 
-    fun connectToServer() {
-        GlobalScope.launch {
+
+
+    suspend fun InfoQRSuspend(id  : Int) {
+        ensureConnected()
+        return withContext(Dispatchers.IO) {
             try {
-                val socketAddress = InetSocketAddress(serverAddress, port)
-                socket.connect(socketAddress)
-                Log.d("SERVER", "Socket connected to $serverAddress:$port")
-                isConnected = true
-                outputStreamDeferred = socket.getOutputStream()
-                inputStreamDeferred = socket.getInputStream()
-                writer = PrintWriter(BufferedWriter(OutputStreamWriter(outputStreamDeferred)))
-                reader = BufferedReader(InputStreamReader(inputStreamDeferred))
-                Log.d("SERVER", "Socket connection completed successfully")
-                Log.d("SERVER", "Socket connection completed successfully $isConnected")
-            } catch (e: Exception) {
-                Log.e("SERVER", "Socket connection failed: ${e.message}")
+                Log.d("SERVER", "Sending login request")
+                // Crearea unui JSONObject pentru cererea de login
+                val QRInfoRequest = JSONObject().apply {
+                    put("type", "QRInfo")
+                    put("id", id)
+                }
+
+                // Scrierea șirului JSON în fluxul de ieșire
+                writer.println(QRInfoRequest)
+                writer.flush()
+                Log.d("SERVER", "Sent QRInfo request")
+
+                // Citirea răspunsului de la server
+                val response = reader.readLine()
+                val jsonResponse = JSONObject(response)
+                val type = jsonResponse.getString("type")
+                if (type == "QRInfo") {
+                    val Name = jsonResponse.getString("nume")
+                    val dataExpirare = jsonResponse.getString("dataExpirare")
+                    val tip = jsonResponse.getString("tip")
+                    QRDETAILS =  QRDetails(Name,dataExpirare,tip)
+                }
+                response
+            } catch (e: IOException) {
                 e.printStackTrace()
+                Log.e("SERVER", "Error : ${e.message}")
+                // Returnarea unui șir gol sau a unui răspuns de eroare implicit
+                ""
             }
         }
     }
 
+
+    suspend fun getQRInfo() : QRDetails{
+        getQRInfoSuspend()
+        return QRDETAILS
+    }
+
+    fun resetQRInfo(){
+        QRDETAILS.tip=""
+    }
+
+    suspend fun getQRInfoSuspend(){
+        var nr =1
+        while(!::QRDETAILS.isInitialized || QRDETAILS.tip==""){
+            Log.d("SERVER","SUNTEM IN QRDETAILS SUSPEND $nr")
+            delay(1000)
+            nr+=1
+        }
+    }
+
+
+    fun connectToServer() {
+        if(!isConnected){
+            GlobalScope.launch {
+                try {
+                    val socketAddress = InetSocketAddress(serverAddress, port)
+                    socket.connect(socketAddress)
+                    Log.d("SERVER", "Socket connected to $serverAddress:$port")
+                    isConnected = true
+                    outputStreamDeferred = socket.getOutputStream()
+                    inputStreamDeferred = socket.getInputStream()
+                    writer = PrintWriter(BufferedWriter(OutputStreamWriter(outputStreamDeferred)))
+                    reader = BufferedReader(InputStreamReader(inputStreamDeferred))
+                    Log.d("SERVER", "Socket connection completed successfully")
+                    Log.d("SERVER", "Socket connection completed successfully $isConnected")
+                } catch (e: Exception) {
+                    Log.e("SERVER", "Socket connection failed: ${e.message}")
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
+
+    fun login(email: String, password: String) {
+        GlobalScope.launch {
+            val response = loginAsync(email, password)
+        }
+    }
 
     suspend fun loginAsync(email: String, password: String): String {
         ensureConnected()
@@ -79,6 +198,13 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
 
                 // Citirea răspunsului de la server
                 val response = reader.readLine()
+                val jsonResponse = JSONObject(response)
+                val type = jsonResponse.getString("type")
+                tip_client = when (type) {  // Directly assign to `tip_client`
+                    "ClientResponse" -> "CLIENT"
+                    "ControlorResponse" -> "CONTROLOR"
+                    else -> "EROARE"
+                }
                 Log.d("SERVER", "Received login response: $response")
 
                 response
@@ -91,9 +217,92 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
         }
     }
 
-    fun login(email: String, password: String) {
+
+    fun Verify() {
         GlobalScope.launch {
-            val response = loginAsync(email, password)
+            val response = VerifyAsync()
+        }
+    }
+
+
+    suspend fun VerifyAsync(){
+        return withContext(Dispatchers.IO) {
+            try {
+                Log.d("SERVER", "Sending login request")
+                // Crearea unui JSONObject pentru cererea de login
+                val loginRequest = JSONObject().apply {
+                    put("type", "VerifyPass")
+                }
+
+                // Scrierea șirului JSON în fluxul de ieșire
+                writer.println(loginRequest)
+                writer.flush()
+                Log.d("SERVER", "Sent login request")
+
+                // Citirea răspunsului de la server
+                val response = reader.readLine()
+                Log.d("SERVER", "Received login response: $response")
+                val jsonResponse = JSONObject(response)
+                val type = jsonResponse.getString("type")
+                PassExists= when (type) {  // Directly assign to `tip_client`
+                    "OkResponse" -> "INTENT"
+                    "ErrorResponse" -> "DISCLAIMER"
+                    else -> {"NO"}
+                }
+                Log.d("SERVER", "Received login response: $response")
+
+                response
+            } catch (e: IOException) {
+                e.printStackTrace()
+                Log.e("SERVER", "Error : ${e.message}")
+                // Returnarea unui șir gol sau a unui răspuns de eroare implicit
+                ""
+            }
+        }
+    }
+
+    suspend fun getVerify():String{
+        getVerifySuspend()
+        return PassExists
+    }
+
+    suspend fun getVerifySuspend(){
+        var nr =1
+        while(!::PassExists.isInitialized || PassExists == ""){
+            Log.d("SERVER","SUNTEM IN Verify SUSPEND $nr")
+            delay(1000)
+            nr+=1
+        }
+    }
+
+
+    suspend fun getTipClient() :String{
+        Log.d("SERVER","GET TIP CLIENT")
+        getTipClientSuspend()
+        return tip_client
+    }
+
+    suspend fun getTipClientSuspend(){
+        var nr =1
+        while(!::tip_client.isInitialized || tip_client==""){
+
+            Log.d("SERVER","SUNTEM IN TIP_CLIENT SUSPEND $nr")
+            delay(1000)
+            nr+=1
+        }
+    }
+
+
+
+
+
+
+
+
+
+    fun buyTicket(tip: String, pret: Double) {
+        GlobalScope.launch {
+            val response = buyTicketAsync(tip, pret)
         }
     }
 
@@ -128,20 +337,20 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
         }
     }
 
-    fun buyTicket(tip: String, pret: Double) {
+
+
+
+    fun buyPass(tip: String, pret: Double) {
         GlobalScope.launch {
-            val response = buyTicketAsync(tip, pret)
+            val response = buyPassAsync(tip, pret)
         }
     }
-
-
-
 
     suspend fun buyPassAsync(tip: String, pret: Double): String {
         ensureConnected()
         return withContext(Dispatchers.IO) {
             try {
-                Log.d("SERVER", "Sending BuyTicket request")
+                Log.d("SERVER", "Sending BuyPass request")
                 // Crearea unui JSONObject pentru cererea de înregistrare
                 val buyTicketRequest = JSONObject().apply {
                     put("type", "BuyPass")
@@ -168,16 +377,21 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
         }
     }
 
-    fun buyPass(tip: String, pret: Double) {
+
+
+    fun signup(firstName: String, lastName: String, email: String, CNP: String, password: String,statut : String) {
+        connectToServer()
         GlobalScope.launch {
-            val response = buyPassAsync(tip, pret)
+            val job = launch {signupAsync(firstName, lastName, email, CNP, password,statut)}
+            job.join()
         }
     }
 
 
-    suspend fun signupAsync(firstName: String, lastName: String, email: String, CNP: String, password: String): String {
+    suspend fun signupAsync(firstName: String, lastName: String, email: String, CNP: String, password: String,statut:String): String {
         return withContext(Dispatchers.IO) {
             try {
+                ensureConnected()
                 Log.d("SERVER", "Sending signup request")
                 // Crearea unui JSONObject pentru cererea de înregistrare
                 val signupRequest = JSONObject().apply {
@@ -187,7 +401,7 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
                     put("email", email)
                     put("parola", password)
                     put("CNP", CNP)
-                    put("statut", "student")
+                    put("statut", statut)
                 }
 
                 // Scrierea șirului JSON în fluxul de ieșire
@@ -197,6 +411,9 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
 
                 // Citirea răspunsului de la server
                 val response = reader.readLine()
+                val jsonResponse = JSONObject(response)
+                val type = jsonResponse.getString("type")
+                SignupResponse=type
                 Log.d("SERVER", "Received signup response: $response")
 
                 response
@@ -209,26 +426,33 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
         }
     }
 
-    fun signup(firstName: String, lastName: String, email: String, CNP: String, password: String) {
-        GlobalScope.launch {
-            val job = launch {signupAsync(firstName, lastName, email, CNP, password)}
-            job.join()
+
+    suspend fun getSignupResponse() :String{
+        getSignupResponseSuspend()
+        return SignupResponse
+    }
+
+    suspend fun getSignupResponseSuspend(){
+        var nr =1
+        while(!::SignupResponse.isInitialized || SignupResponse==""){
+
+            Log.d("SERVER","SUNTEM IN SignupResponse SUSPEND $nr")
+            delay(1000)
+            nr+=1
         }
     }
+
+
 
 
     fun show_pass() {
         GlobalScope.launch {
-            val response = showPassAsync()
+            showPassAsync()
         }
     }
 
 
-
-
-
     suspend fun showPassAsync(): String {
-        ensureConnected()
         return withContext(Dispatchers.IO) {
             try {
                 Log.d("SERVER", "Sending ShowPass request")
@@ -258,7 +482,135 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
                     for (i in 0 until qrJSONArray.length()) {
                         qrByteArray[i] = qrJSONArray.getInt(i).toByte()
                     }
-                    abonament = AbonamentDetails(dataIncepere,dataExpirare,tip,pret,qrByteArray)
+                    abonament=AbonamentDetails(dataIncepere,dataExpirare,tip,pret,qrByteArray)
+                }
+                ShowPassResponse = type
+                response
+            } catch (e: IOException) {
+                e.printStackTrace()
+                Log.e("SERVER", "Error: ${e.message}")
+                // Returnarea unui șir gol sau a unui răspuns de eroare implicit
+                ""
+            }
+        }
+    }
+
+    suspend fun getShowPassResponse() :String{
+        getShowPassResponseSuspend()
+        return ShowPassResponse
+    }
+
+    suspend fun getShowPassResponseSuspend(){
+        var nr =1
+        while(!::ShowPassResponse.isInitialized || ShowPassResponse==""){
+
+            Log.d("SERVER","SUNTEM IN SHOWPASSRESPONSE SUSPEND $nr")
+            delay(1000)
+            nr+=1
+        }
+    }
+
+
+
+    fun get_orar(linia:String){
+        GlobalScope.launch {
+            get_orar_async(linia)
+        }
+    }
+
+
+    suspend fun get_orar_async(linia:String){
+        return withContext(Dispatchers.IO) {
+            try {
+                Log.d("SERVER", "Sending ORAR request")
+                // Crearea unui JSONObject pentru cererea de înregistrare
+                val buyTicketRequest = JSONObject().apply {
+                    put("type", "OrarRequest")
+                    put("linie",linia)
+                }
+
+                // Scrierea șirului JSON în fluxul de ieșire
+                writer.println(buyTicketRequest)
+                writer.flush()
+                Log.d("SERVER", "Sent  OrarRequest request")
+
+                // Citirea răspunsului de la server
+                val response = reader.readLine()
+                Log.d("SERVER","RECEIVE OrarRequest RESPONSE $response")
+                val jsonResponse = JSONObject(response)
+                val type = jsonResponse.getString("type")
+                val qrJSONArray = jsonResponse.getJSONArray("imagine")
+                val qrByteArray = ByteArray(qrJSONArray.length())
+                for (i in 0 until qrJSONArray.length()) {
+                    qrByteArray[i] = qrJSONArray.getInt(i).toByte()
+                }
+                orar = Orar(qrByteArray)
+                response
+            } catch (e: IOException) {
+                e.printStackTrace()
+                Log.e("SERVER", "Error: ${e.message}")
+                // Returnarea unui șir gol sau a unui răspuns de eroare implicit
+                ""
+            }
+        }
+    }
+
+    suspend fun getOrar() :Orar{
+        getOrarSuspend()
+        return orar
+    }
+
+    suspend fun getOrarSuspend(){
+        var nr =1
+        while(!::orar.isInitialized){
+
+            Log.d("SERVER","SUNTEM IN ORAR SUSPEND $nr")
+            delay(1000)
+            nr+=1
+        }
+    }
+
+    fun TicketRequest(){
+        GlobalScope.launch{
+            TicketRequestAsync()
+        }
+    }
+
+
+    suspend fun TicketRequestAsync(){
+        return withContext(Dispatchers.IO) {
+            try {
+                Log.d("SERVER", "Sending GetTickets request")
+                // Crearea unui JSONObject pentru cererea de înregistrare
+                val getTicketsRequest = JSONObject().apply {
+                    put("type", "GetTickets")
+                }
+
+                // Scrierea șirului JSON în fluxul de ieșire
+                writer.println(getTicketsRequest)
+                writer.flush()
+                Log.d("SERVER", "Sent  GetTickets request")
+
+                // Citirea răspunsului de la server
+                val response = reader.readLine()
+                Log.d("SERVER","RECEIVE GetTickets RESPONSE $response")
+                val jsonResponse = JSONObject(response)
+                val size = jsonResponse.getInt("size")
+                SIZE_TICKET=size
+                ticketList = mutableListOf()
+                for (i in 0 until size) {
+                    val id = jsonResponse.getInt("id$i")
+                    val dataIncepere = jsonResponse.getString("dataIncepere$i")
+                    val dataExpirare = jsonResponse.getString("dataExpirare$i")
+                    val tip = jsonResponse.getString("tip$i")
+                    val pret = jsonResponse.getDouble("pret$i")
+                    val qrJSONArray = jsonResponse.getJSONArray("qr$i")
+                    val qrByteArray = ByteArray(qrJSONArray.length())
+                    for (i in 0 until qrJSONArray.length()) {
+                        qrByteArray[i] = qrJSONArray.getInt(i).toByte()
+                    }
+                    var ticket = Ticket(id,dataIncepere,dataExpirare,tip,pret,qrByteArray)
+                    ticketList.add(ticket)
                 }
                 response
             } catch (e: IOException) {
@@ -268,6 +620,26 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
                 ""
             }
         }
+    }
+
+
+    suspend fun getTicketListSuspend(){
+        var nr =1
+        while(!::ticketList.isInitialized ){
+            Log.d("SERVER","SUNTEM IN TICKET LIST SUSPEND $nr")
+            delay(100)
+            nr+=1
+        }
+        while(ticketList.size!=SIZE_TICKET){
+            Log.d("SERVER","SUNTEM IN TICKET LIST SUSPEND $nr")
+            delay(100)
+            nr+=1
+        }
+    }
+
+    suspend fun getTicketList(): MutableList<Ticket> {
+        getTicketListSuspend()
+        return ticketList
     }
 
 
@@ -291,6 +663,58 @@ class ConnectToServerViewModel private constructor() : ViewModel() {
 
 }
 
+data class Orar(
+    val orar:ByteArray
+)
+
+
+data class Ticket(
+    val id: Int,
+    val dataIncepere: String,
+    val dataExpirare: String,
+    val tip: String,
+    val pret: Double,
+    val qr: ByteArray
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readInt(),
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readDouble(),
+        parcel.createByteArray() ?: ByteArray(0)
+    )
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
+        parcel.writeString(dataIncepere)
+        parcel.writeString(dataExpirare)
+        parcel.writeString(tip)
+        parcel.writeDouble(pret)
+        parcel.writeByteArray(qr)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Ticket> {
+        override fun createFromParcel(parcel: Parcel): Ticket {
+            return Ticket(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Ticket?> {
+            return arrayOfNulls(size)
+        }
+    }
+}
+
+
+data class QRDetails(
+    val nume :String,
+    val dataExpirare :String,
+    var tip: String
+)
 
 
 data class AbonamentDetails(

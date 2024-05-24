@@ -51,12 +51,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_dialog_background">
 
         <Button
             android:id="@+id/buttonGotIt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="35px"
             android:text="Got It"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/greenn"
@@ -66,7 +68,8 @@
             android:id="@+id/buttonregister1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:textSize="35px"
+            android:text="Sign Up"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/purple"
             android:layout_marginStart="16dp" />

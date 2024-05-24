@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
@@ -22,13 +23,15 @@ class SelectBox : AppCompatActivity() {
     private lateinit var pass_type : String
     private var price : Double = 0.0
 
+    companion object {
+        const val EXTRA_PASS_TYPE_PASS = "com.example.mypublictransportlogin.PASS_TYPE_PASS"
+        const val EXTRA_PRICE_PASS = "com.example.mypublictransportlogin.PRICE_PASS"
+    }
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bus_pass)
-        
-
-        val connectToServerViewModel = ConnectToServerViewModel.getInstance()
         findViewById<LinearLayout>(R.id.firstpass)?.setOnClickListener {
             toggleBusPassSelection(findViewById(R.id.firstpass) as LinearLayout, "URBAN PASS", "150.00 RON")
             pass_type = "URBAN PASS"
@@ -69,9 +72,17 @@ class SelectBox : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.paymentButton).setOnClickListener {
-            val intent19 = Intent(this, Payment::class.java)
-            startActivity(intent19)
-            connectToServerViewModel.buyPass(pass_type,price)
+            if(price!=0.0){
+                val intent19 = Intent(this, Payment::class.java).apply {
+                    putExtra(EXTRA_PASS_TYPE_PASS, pass_type)
+                    putExtra(EXTRA_PRICE_PASS, price)
+                }
+                startActivity(intent19)
+            }
+            else{
+                Log.d("SERVER","PRETUL NU ESTE SETAT")
+            }
+
         }
 
         showDisclaimerDialog()

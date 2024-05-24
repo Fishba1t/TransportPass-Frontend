@@ -4,4 +4,5 @@
     <string name="pass_type">PASS TYPE : %s</string>
     <string name="valid_since">VALID SINCE : %s</string>
     <string name="valid_until">VALID UNTIL : %s</string>
+    <string name="total_to_pay">Total to pay: %1$.2f RON</string>
 </resources>

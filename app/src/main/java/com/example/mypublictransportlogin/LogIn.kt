@@ -14,11 +14,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
+import ConnectToServerViewModel
+import android.app.Dialog
+import android.util.Log
+import android.widget.Button
+import android.widget.ImageButton
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+
 
 class LogIn : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var keyIconImageView: ImageView
     private var isPasswordVisible = false
+    private lateinit var dialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +58,34 @@ class LogIn : AppCompatActivity() {
             findViewById<com.google.android.material.button.MaterialButton>(R.id.LOGIN).setOnClickListener {
                 val email = findViewById<EditText>(R.id.emailEditText).text.toString()
                 val password = findViewById<EditText>(R.id.passwordEditText).text.toString()
-                val connectToServerViewModel = ConnectToServerViewModel.getInstance()
-                connectToServerViewModel.connectToServer()
-                connectToServerViewModel.login(email, password)
-                val intent5 = Intent(this, ClientMain::class.java)
-                startActivity(intent5)
+                if(email=="" || password==""){
+                    EMPTY_FIELDS()
+                }
+                else{
+                    val connectToServerViewModel = ConnectToServerViewModel.getInstance()
+                    lifecycleScope.launch {
+                        connectToServerViewModel.connectToServer()
+                        connectToServerViewModel.login(email, password)
+                        val tip_client = connectToServerViewModel.getTipClient()
+                        Log.d("SERVER","TIP CLIENT : $tip_client")
+                        when (tip_client) {
+                            "CLIENT" -> {
+                                Log.d("SERVER","ESTE CLIENT DESCHIDEM MAIN")
+                                val intent5 = Intent(this@LogIn, ClientMain::class.java)
+                                startActivity(intent5)
+                            }
+                            "CONTROLOR" -> {
+                                Log.d("SERVER","ESTE CONTROLOR DESCHIDEM QR")
+                                val intent5 = Intent(this@LogIn, QRCodeReader::class.java)
+                                startActivity(intent5)
+                            }
+                            else -> {
+                                showDisclaimerDialogACCOUNT_NOT_FOUND()
+                            }
+                        }
+                    }
+                }
+
             }
 
             // Apply window insets to handle system UI
@@ -75,16 +107,6 @@ class LogIn : AppCompatActivity() {
 
         }
 
-        findViewById<MaterialButton>(R.id.LOGIN).setOnClickListener {
-            val email = findViewById<EditText>(R.id.emailEditText).text.toString()
-            val password = passwordEditText.text.toString()
-            val connectToServerViewModel = ConnectToServerViewModel.getInstance()
-            connectToServerViewModel.connectToServer()
-            connectToServerViewModel.login(email, password)
-            val intent5 = Intent(this, ClientMain::class.java)
-            startActivity(intent5)
-        }
-
         // Apply window insets to handle system UI
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -98,6 +120,58 @@ class LogIn : AppCompatActivity() {
         animationDrawable.setEnterFadeDuration(3500)
         animationDrawable.setExitFadeDuration(5000)
         animationDrawable.start()
+    }
+
+    private fun EMPTY_FIELDS() {
+        // Create a dialog instance
+        dialog = Dialog(this)
+
+        // Set the content view to the disclaimer layout
+        dialog.setContentView(R.layout.fill_all_fields_disclaimer)
+
+        // Find the OK button in the dialog layout
+        val okButton = dialog.findViewById<Button>(R.id.okButton)
+
+        val close = dialog.findViewById<ImageButton>(R.id.closeButtonPass)
+
+        // Set a click listener for the OK button to dismiss the dialog
+        okButton.setOnClickListener {
+            dialog.dismiss() // Dismiss the dialog when OK is clicked
+        }
+
+        close.setOnClickListener {
+            dialog.dismiss() // Dismiss the dialog when OK is clicked
+        }
+
+
+        // Show the dialog
+        dialog.show()
+    }
+
+    private fun showDisclaimerDialogACCOUNT_NOT_FOUND() {
+        // Create a dialog instance
+        dialog = Dialog(this)
+
+        // Set the content view to the disclaimer layout
+        dialog.setContentView(R.layout.acces_denied)
+
+        // Find the OK button in the dialog layout
+        val okButton = dialog.findViewById<Button>(R.id.buttonGotIt1)
+
+        val register = dialog.findViewById<Button>(R.id.buttonregister1)
+
+        // Set a click listener for the OK button to dismiss the dialog
+        okButton.setOnClickListener {
+            dialog.dismiss() // Dismiss the dialog when OK is clicked
+        }
+
+        register.setOnClickListener {
+            val intent5 = Intent(this@LogIn, SignUpActivity::class.java)
+            startActivity(intent5)
+        }
+
+        // Show the dialog
+        dialog.show()
     }
 
     private fun togglePasswordVisibility() {

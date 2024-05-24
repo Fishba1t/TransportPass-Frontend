@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/firstpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +13,6 @@
         android:elevation="4dp"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="onBusPassSelected"
         tools:ignore="MissingConstraints">
 
         <FrameLayout
@@ -26,6 +22,7 @@
 
 
             <TextView
+                android:id="@+id/TYPE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BUSS TYPE TO BE WRITTEN.."
@@ -64,9 +61,9 @@
         </FrameLayout>
 
         <TextView
+            android:id="@+id/PRICE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Price: XXX.XX"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:paddingStart="16dp"
@@ -75,6 +72,7 @@
             android:paddingTop="8dp" />
 ]
         <TextView
+            android:id="@+id/VALIDITY"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Validity: TO BE WRITTEN..."
@@ -86,5 +84,3 @@
             android:paddingTop="8dp" />
 
     </LinearLayout>
-
-</RelativeLayout>

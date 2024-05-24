@@ -13,13 +13,15 @@
         android:layout_height="wrap_content">
 
         <!-- Image View -->
+
         <ImageView
             android:id="@+id/topImage"
             android:layout_width="match_parent"
             android:layout_height="320dp"
             android:layout_alignParentTop="true"
-            android:src="@drawable/output_image2"
-            android:scaleType="centerCrop" />
+            android:layout_marginTop="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/output_image2" />
 
         <TextView
             android:id="@+id/welcomeText"
@@ -50,8 +52,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="10dp"
+                android:clickable="true"
                 app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                android:focusable="true">
 
                 <RelativeLayout
                     android:id="@+id/mypass"
