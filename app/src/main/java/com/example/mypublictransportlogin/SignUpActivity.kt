@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
@@ -35,6 +36,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var adapterItems: ArrayAdapter<String>
     private lateinit var chooseFilesButton: Button
 
+
     companion object {
         private const val REQUEST_CHOOSE_PHOTO = 2
     }
@@ -56,8 +58,11 @@ class SignUpActivity : AppCompatActivity() {
         adapterItems = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, items)
         autoCompleteTextView.setAdapter(adapterItems)
 
+
+        // Set input type to null to prevent keyboard from showing
         autoCompleteTextView.inputType = 0
 
+        // Always show the dropdown when touching the AutoCompleteTextView
         autoCompleteTextView.setOnTouchListener { _, _ ->
             autoCompleteTextView.showDropDown()
             hideKeyboard(autoCompleteTextView)
@@ -75,7 +80,9 @@ class SignUpActivity : AppCompatActivity() {
             val selectedItem = parent.getItemAtPosition(position).toString()
             autoCompleteTextView.setText(selectedItem, false)
             Toast.makeText(this@SignUpActivity, "Item $selectedItem selected", Toast.LENGTH_SHORT).show()
+
             chooseFilesButton.isEnabled = selectedItem == "Pupil" || selectedItem == "Student"
+
         }
 
         val connectToServerViewModel = ConnectToServerViewModel.getInstance()
@@ -122,6 +129,11 @@ class SignUpActivity : AppCompatActivity() {
             openGallery()
         }
         chooseFilesButton.isEnabled = false // Initially disable the button
+    }
+
+    private fun hideKeyboard(view: View) {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun hideKeyboard(view: View) {
