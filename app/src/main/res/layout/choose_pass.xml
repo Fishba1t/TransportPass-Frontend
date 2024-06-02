@@ -85,7 +85,7 @@
             android:layout_below="@id/metro"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
-            android:text="These subscriptions are valid for traveling between the city of Cluj-Napoca and the localities, in the metropolitan area."
+            android:text="These bus passes are valid for traveling between the city of Cluj-Napoca and the localities, in the metropolitan area."
             android:textSize="16sp" />
 
     </RelativeLayout>
@@ -117,7 +117,7 @@
             android:layout_below="@id/intra"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
-            android:text="These subscriptions are valid for traveling within a municipality, in the metropolitan area."
+            android:text="These bus passes are valid for traveling within a municipality, in the metropolitan area."
             android:textSize="16sp" />
 
     </RelativeLayout>
@@ -149,7 +149,7 @@
             android:layout_below="@id/inter"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
-            android:text="These subscriptions are valid for travel between two neighboring municipalities, in the metropolitan area."
+            android:text="These bus passes are valid for travel between two neighboring municipalities, in the metropolitan area."
             android:textSize="16sp" />
 
     </RelativeLayout>

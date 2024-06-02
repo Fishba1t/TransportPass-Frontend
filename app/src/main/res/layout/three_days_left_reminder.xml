@@ -7,44 +7,45 @@
     android:background="@color/white">
 
     <ImageButton
-        android:id="@+id/closeButton"
+        android:id="@+id/closeButtonReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:src="@drawable/baseline_close_24"
-        android:contentDescription="Close"/>
+        android:contentDescription="Close" />
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ACCESS DENIED!"
-        android:textColor="@android:color/holo_red_dark"
+        android:text="REMINDER!"
+        android:textColor="@color/orangee2"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp" />
 
     <ImageView
-        android:id="@+id/imageAccessDenied"
+        android:id="@+id/imageReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/accessdenied"
+        android:src="@drawable/reminder"
+        android:backgroundTint="@color/white"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Access Denied" />
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/textMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The account was not found.\nPlease register!"
+        android:text="BE AWARE!\n There are only 3 days left until your BUS PASS expires!"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="16dp"
         android:layout_gravity="center_horizontal" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,21 +55,25 @@
         android:layout_marginTop="24dp">
 
         <Button
-            android:id="@+id/buttonGotIt1"
-            android:layout_width="110dp"
+            android:id="@+id/okReminder"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Got It"
+            android:text="OK"
             android:textColor="@android:color/white"
-            android:backgroundTint="@color/greenn"
-            android:layout_marginEnd="16dp" />
+            android:backgroundTint="@color/orangee2"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp" />
 
         <Button
-            android:id="@+id/buttonregister1"
-            android:layout_width="110dp"
+            android:id="@+id/buyFromReminder"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="renew"
+            android:layout_marginStart="50dp"
             android:textColor="@android:color/white"
-            android:backgroundTint="@color/purple"
-            android:layout_marginStart="16dp" />
+            android:backgroundTint="@color/orangee2"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp" />
     </LinearLayout>
+
 </LinearLayout>

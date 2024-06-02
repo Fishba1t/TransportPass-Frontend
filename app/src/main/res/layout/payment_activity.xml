@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="470dp"
+        android:layout_height="485dp"
         android:orientation="vertical"
         android:background="@drawable/popup_background"
         android:layout_margin="10dp"/>
@@ -72,6 +72,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/greenn"
+        android:textStyle="bold"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="120dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/errorconfirmationNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/redd2"
         android:textStyle="bold"
         android:layout_marginStart="31dp"
         android:layout_marginTop="120dp"

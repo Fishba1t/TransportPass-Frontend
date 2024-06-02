@@ -74,27 +74,27 @@ class SelectBox : AppCompatActivity() {
             connectToServerViewModel.buyPass(pass_type,price)
         }
 
-        showDisclaimerDialog()
+        //showDisclaimerDialog()
     }
 
-    private fun showDisclaimerDialog() {
-        // Create a dialog instance
-        dialog = Dialog(this)
-
-        // Set the content view to the disclaimer layout
-        dialog.setContentView(R.layout.disclaimer)
-
-        // Find the OK button in the dialog layout
-        val okButton = dialog.findViewById<Button>(R.id.okButton)
-
-        // Set a click listener for the OK button to dismiss the dialog
-        okButton.setOnClickListener {
-            dialog.dismiss() // Dismiss the dialog when OK is clicked
-        }
-
-        // Show the dialog
-        dialog.show()
-    }
+//    private fun showDisclaimerDialog() {
+//        // Create a dialog instance
+//        dialog = Dialog(this)
+//
+//        // Set the content view to the disclaimer layout
+//        dialog.setContentView(R.layout.disclaimer)
+//
+//        // Find the OK button in the dialog layout
+//        val okButton = dialog.findViewById<Button>(R.id.okButton)
+//
+//        // Set a click listener for the OK button to dismiss the dialog
+//        okButton.setOnClickListener {
+//            dialog.dismiss() // Dismiss the dialog when OK is clicked
+//        }
+//
+//        // Show the dialog
+//        dialog.show()
+//    }
 
     private fun onBusPassSelected(layout: LinearLayout, passType: String, price: String) {
         // Change background color of the selected bus pass layout
