@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    //id("com.google.gms.google-services")
 }
 
 android {
@@ -14,7 +13,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -27,21 +25,24 @@ android {
             )
         }
     }
-    buildFeatures{
-        viewBinding=true
+
+    buildFeatures {
+        viewBinding = true
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildToolsVersion = "34.0.0"
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -53,6 +54,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation("com.google.zxing:core:3.4.1")
-    implementation ("com.google.android.material:material:1.4.0")
-
+    implementation("com.google.android.material:material:1.4.0")
 }

@@ -315,6 +315,32 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+                <TextView
+                    android:id="@+id/choosefilestextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nopassknown"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="19dp"
+                    android:text="Upload a photo of your StudCard:"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/ChooseYourFiles"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:text="Choose Photo"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginEnd="20dp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/black"
+                    android:backgroundTint="@color/gray2" />
+
 
 
                 <!-- Sign Up Button -->
@@ -323,6 +349,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:text="SIGN UP"
+                    android:layout_marginTop="15dp"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/purple"
                     app:cornerRadius="32dp" />
